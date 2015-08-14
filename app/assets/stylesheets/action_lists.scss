@@ -1,3 +1,15 @@
 @import "variables";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.container.main {
+  padding-bottom: 80px;
+  margin-top: 61px; // accommodate the navbar
+}
+
+section.row {
+  &:first-of-type {
+    margin-top: 0;
+  }
+  margin-top: 20px;
+}
