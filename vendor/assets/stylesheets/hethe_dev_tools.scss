@@ -1,0 +1,12 @@
+$colors: ('red', 'orange', 'yellow', 'green', 'blue', 'pink', 'purple', 'white', 'black');
+
+@each $color in $colors {
+  .#{$color} {
+    outline: 2px solid #{$color} ;
+  }
+  @for $pixel from 1 through 10 {
+    .#{$color}-#{$pixel} {
+      outline: #{$pixel}px solid #{$color} ;
+    }
+  }
+}
