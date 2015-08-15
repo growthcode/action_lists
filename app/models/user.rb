@@ -13,11 +13,18 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :inet
 #  last_sign_in_ip        :inet
+#  first_name             :string
+#  last_name              :string
+#  organziation           :string
+#  admin                  :boolean          default(FALSE)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
 
 class User < ActiveRecord::Base
+  has_many :plans, inverse_of: :user, dependent: :destroy
+  has_many :tasks, through: :plans
+  has_many :needs, through: :tasks
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
