@@ -97,7 +97,7 @@
 <text text-anchor="start" x="233.41" y="-656.3" font-family="Times,serif" font-size="14.00">last_sign_in_ip :inet</text>
 <text text-anchor="start" x="233.41" y="-642.3" font-family="Times,serif" font-size="14.00">first_name :string</text>
 <text text-anchor="start" x="233.41" y="-628.3" font-family="Times,serif" font-size="14.00">last_name :string</text>
-<text text-anchor="start" x="233.41" y="-614.3" font-family="Times,serif" font-size="14.00">organziation :string</text>
+<text text-anchor="start" x="233.41" y="-614.3" font-family="Times,serif" font-size="14.00">organization :string</text>
 <text text-anchor="start" x="233.41" y="-600.3" font-family="Times,serif" font-size="14.00">admin :boolean</text>
 <text text-anchor="start" x="233.41" y="-586.3" font-family="Times,serif" font-size="14.00">created_at :datetime</text>
 <text text-anchor="start" x="233.41" y="-572.3" font-family="Times,serif" font-size="14.00">updated_at :datetime</text>

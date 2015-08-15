@@ -15,7 +15,7 @@
 #  last_sign_in_ip        :inet
 #  first_name             :string
 #  last_name              :string
-#  organziation           :string
+#  organization           :string
 #  admin                  :boolean          default(FALSE)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null

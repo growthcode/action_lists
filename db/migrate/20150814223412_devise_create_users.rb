@@ -20,7 +20,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.inet     :last_sign_in_ip
       t.string   :first_name
       t.string   :last_name
-      t.string   :organziation
+      t.string   :organization
       t.boolean  :admin, default: false
 
       ## Confirmable
