@@ -20,6 +20,7 @@
 #
 
 Rails.application.routes.draw do
+  resources :plans
   root to: 'pages#home'
   devise_for :users
 end
