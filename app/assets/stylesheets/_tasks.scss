@@ -1,3 +1,42 @@
-// Place all the styles related to the tasks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.plan-header {
+  height: auto;
+  flex: none;
+  padding: $plan-header-padding;
+  position: relative;
+  overflow: hidden;
+  .plan-header-btn {
+    border-radius: $plan-header-btn-border-radius;
+    color: $body-text-color-on-dark;
+    float: left;
+    font-size: $plan-header-btn-font-size;
+    height: $plan-header-element-height;
+    line-height: $plan-header-element-height;
+    overflow: hidden;
+    text-decoration: none;
+    padding-left: $plan-header-btn-padding-LR;
+    padding-right: $plan-header-btn-padding-LR;
+    &:hover {
+      background: rgba(0,0,0,.12);
+      cursor: pointer;
+    }
+  }
+  .plan-header-name {
+    font-size: 18px;
+    font-weight: 700;
+    &:hover {
+      background: none;
+      cursor: auto;
+    }
+  }
+  .plan-header-menu {
+    float: right;
+    .plan-header-menu-text {
+      text-decoration: underline;
+    }
+    .plan-header-icon {
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 600;
+    }
+  }
+}

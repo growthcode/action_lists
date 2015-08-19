@@ -15,10 +15,35 @@ body {
   height: 100%;
 }
 
+.u-clearfix:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+#main-content {
+  position: relative;
+  .main-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    transition: margin 100ms ease-in;
+  }
+}
+
 // bootstrap overrides
 .container-fluid.main {
   padding-bottom: 80px;
   margin-top: 61px; // accommodate the navbar
+  margin: 0;
 }
 
 section.row {
@@ -33,7 +58,7 @@ a {
   text-decoration: none;
   &:hover, &:focus {
     color: white;
-    text-decoration: underline;
+    text-decoration: none;
   }
   &:focus {
     outline: thin dotted;
