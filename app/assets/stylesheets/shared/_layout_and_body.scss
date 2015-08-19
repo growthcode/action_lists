@@ -1,23 +1,63 @@
 body {
-  background: $body-bg-color;
+  background: $body-bg-clr;
   background-size: cover;
   overflow: hidden;
   font-family: $helv-neue;
   line-height: 18px;
   font-size:   14px;
   position: relative;
+  z-index: 0;
+  height: 100%;
+}
+#flex-wrapper, body, html {
+    height: 100%;
 }
 
 // Put the 'display: flex;' in an class in case I want to remove it from the body.
-.flex-wrapper {
+#flex-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
+// .u-clearfix:after {
+//   clear: both;
+//   content: "";
+//   display: table;
+// }
+
+// reposition scrollbar? touchscreen scrollbar?
+//.u-fancy-scrollbar {
+//   -webkit-overflow-scrolling: touch;
+//   -webkit-transform: translate3d(0,0,0);
+// }
+
+#main-content {
+  position: relative;
+  flex-grow: 1;
+  .main-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: margin 100ms ease-in;
+  }
+}
+
+// bootstrap overrides
 .container-fluid.main {
   padding-bottom: 80px;
   margin-top: 61px; // accommodate the navbar
+  margin: 0;
+}
+
+.alert {
+  margin: 15px;
 }
 
 section.row {
@@ -25,4 +65,18 @@ section.row {
     margin-top: 0;
   }
   margin-top: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  &:hover, &:focus {
+    color: white;
+    text-decoration: none;
+  }
+  &:focus {
+    outline: thin dotted;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+  }
 }

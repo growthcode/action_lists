@@ -1,7 +1,7 @@
 #header {
   background: rgba(0, 0, 0, .15);
-  height: $header-height;
-  padding: $header-padding;
+  height: $header-ht;
+  padding: $header-pdg;
   position: relative;
   flex: none;
   z-index: 10;
@@ -11,11 +11,11 @@
   }
   .dropdown-toggle {
     text-decoration: none;
-    color: $body-text-color-on-dark;
+    color: $body-text-clr-on-dark;
   }
   .dropdown-menu {
     li a {
-      color: $body-text-color;
+      color: $body-text-clr;
       &:hover {
         text-decoration: none;
         background-color: #eeeeee;
@@ -24,30 +24,31 @@
   }
   .header-btn {
     position: relative;
-    border-radius: $header-btn-border-radius;
+    border-radius: $header-btn-bdr-rds;
     background: rgba(255, 255, 255, .3);
-    color: $body-text-color-on-dark;
-    height: $header-btn-height;
-    line-height: $header-btn-height;
+    color: $body-text-clr-on-dark;
+    height: $header-btn-ht;
+    line-height: $header-btn-ht;
     padding: 0 8px;
     z-index: 50;
     text-decoration: none;
     &:hover {
+      cursor: pointer;
       background-color: rgba(0, 0, 0, 0);
       background: linear-gradient(to bottom,rgba(255,255,255,.5) 0,rgba(255,255,255,.3) 100%);
     }
   }
   .header-btn-plans {
     position: absolute;
-    left: $header-padding;
+    left: $header-pdg;
   }
   .header-btn-logo {
     position: absolute;
-    height: $header-btn-height;
-    line-height: $header-btn-height;
+    height: $header-btn-ht;
+    line-height: $header-btn-ht;
     font-size: 30px;
     font-family: $sans;
-    color: $body-text-color-on-dark;
+    color: $body-text-clr-on-dark;
     left: 50%;
     width: 150px;
     margin-left: -75px;
@@ -63,13 +64,14 @@
   }
   .header-btn-user {
     position: absolute;
-    right: $header-padding;
+    right: $header-pdg;
     padding-left: 0;
     img {
       vertical-align: top;
-      height: $header-btn-height;
-      border-top-left-radius: $header-btn-border-radius;
-      border-bottom-left-radius: $header-btn-border-radius;
+      height: $header-btn-ht;
+      border-top-left-radius: $header-btn-bdr-rds;
+      border-bottom-left-radius: $header-btn-bdr-rds;
+      margin-right: 4px;
     }
     .dropdown-menu {
       left: auto;
@@ -78,7 +80,7 @@
   }
   .logged-out {
     position: absolute;
-    right: $header-padding;
+    right: $header-pdg;
     padding-left: 0;
     li {
       padding-left: 8px;
@@ -86,7 +88,7 @@
       margin-left: 5px;
       float: left;
       a {
-        color: $body-text-color-on-dark;
+        color: $body-text-clr-on-dark;
         text-decoration: none;
       }
     }

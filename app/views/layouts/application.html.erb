@@ -8,13 +8,17 @@
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
-  <body class="flex-wrapper">
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <div class="container-fluid main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
+  <body>
+    <div id="flex-wrapper">
+    <%= render 'layouts/navigation' %>
+    <div id="main-content">
+      <div class="main-wrapper">
+        <%= render 'layouts/messages' %>
+        <div class="content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
     </div>
   </body>
 </html>

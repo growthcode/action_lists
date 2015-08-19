@@ -1,0 +1,42 @@
+.plan-header {
+  height: auto;
+  flex: none;
+  padding: $plan-header-pdg;
+  position: relative;
+  overflow: hidden;
+  .plan-header-btn {
+    border-radius: $plan-header-btn-bdr-rds;
+    color: $body-text-clr-on-dark;
+    float: left;
+    font-size: $plan-header-btn-font-size;
+    height: $plan-header-elem-ht;
+    line-height: $plan-header-elem-ht;
+    overflow: hidden;
+    text-decoration: none;
+    padding-left: $plan-header-btn-pdg-LR;
+    padding-right: $plan-header-btn-pdg-LR;
+    &:hover {
+      background: rgba(0,0,0,.12);
+      cursor: pointer;
+    }
+  }
+  .plan-header-name {
+    font-size: 18px;
+    font-weight: 700;
+    &:hover {
+      background: none;
+      cursor: auto;
+    }
+  }
+  .plan-header-menu {
+    float: right;
+    .plan-header-menu-text {
+      text-decoration: underline;
+    }
+    .plan-header-icon {
+      font-size: 16px;
+      line-height: 18px;
+      font-weight: 600;
+    }
+  }
+}

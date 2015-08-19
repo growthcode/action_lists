@@ -1,0 +1,120 @@
+.plan-canvas {
+  position: relative;
+  flex-grow: 1;
+}
+
+#plan-board {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  margin-bottom: $plan-board-mrg-btm;
+  padding-bottom: $plan-board-pdg-btm;
+  overflow: hidden; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.inbox-wrapper {
+  width: $inbox-wrapper-wdt;
+  margin: $inbox-wrapper-mgn;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+}
+.position-wrapper {
+  position: absolute;
+  left: $position-wrapper-abs-left;
+  right: 0;
+  min-width: 270px;
+  margin: $position-wrapper-mgn;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+}
+
+.plan-list-content {
+  background: $inbox-bg-clr;
+  border-radius: $inbox-list-bdr-rds;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  position: relative;
+  .plan-list-head {
+    flex: 0 0 auto;
+    padding: $inbox-list-hd-pdg;
+    position: relative;
+    min-height: $inbox-list-hd-txt-min-ht;
+    .plan-list-head-text {
+      display: inline;
+      font-size: $inbox-list-hd-txt-ft-sz;
+      line-height: $inbox-list-hd-txt-ln-ht;
+      margin: 0;
+      min-height: $inbox-list-hd-txt-min-ht;
+      min-width: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      font-weight: bold;
+      font-family: $helv-neue;
+    }
+  }
+  .list-tasks {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin: $list-tasks-mgn;
+    padding: 0 4px;
+    z-index: $list-tasks-pdg;
+    // -webkit-overflow-scrolling: touch;
+    // -webkit-transform: translate3d(0,0,0);
+    .task {
+      background-color: $task-bg-clr;
+      border-bottom: $task-bdr-btm;
+      border-radius: $inbox-task-bdr-rds;
+      cursor: pointer;
+      margin-bottom: $task-mgn-btm;
+      // max-width: $task-mx-wdt;
+      min-height: $task-min-ht;
+      position: relative;
+      z-index: 0;
+      .task-details {
+        overflow: auto;
+        padding: 6px 8px 4px;
+        position: relative;
+        z-index: 10;
+        .task-details-title {
+          // tbd
+        }
+      }
+    }
+  }
+
+  .open-task-composer {
+    border-radius: $open-task-composer-bdr-rds;
+    color: $open-task-composer-clr;
+    display: block;
+    flex: 0 0 auto;
+    padding: $open-task-composer-pdg;
+    position: relative;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover {
+      background-color: $open-task-composer-hvr-bg-clr;
+      color: $open-task-composer-hvr-clr;
+      text-decoration: underline;
+    }
+  }
+}

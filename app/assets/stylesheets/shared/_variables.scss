@@ -1,18 +1,52 @@
 // Colors
-$body-bg-color:    rgb(0, 121, 191); //white; //
-$body-text-color:  #3f3f3f;
-$body-text-color-on-dark: white;
-$border-color:     #d9d9d9;
-$kbd-bg:           tan !default; // for awesome-font bootstrap css fix #=> raw ap @user
+$body-bg-clr:                  rgb(0, 121, 191); //white; //
+$body-text-clr:                #3f3f3f;
+$body-text-clr-on-dark:        white;
+$border-clr:                   #d9d9d9;
+$kbd-bg:                         tan !default; // for awesome-font bootstrap css fix #=> raw ap @user
 
 // Font Families
-$helv-neue:        "Helvetica Neue", Arial, Helvetica, sans-serif;
-$sans:             'Roboto Condensed', sans-serif;;
-$serif:            'Droid serif', sans-serif;;
-
+$helv-neue:                      'Helvetica Neue', Arial, Helvetica, sans-serif;
+$sans:                           'Roboto Condensed', sans-serif;;
+$serif:                          'Droid serif', sans-serif;;
 
 // header variables
-$header-height: 40px;
-$header-padding: 5px;
-$header-btn-height: $header-height - ($header-padding * 2);
-$header-btn-border-radius: 3px;
+$header-ht:                   40px;
+$header-pdg:                  5px;
+$header-btn-ht:               $header-ht - ($header-pdg * 2);
+$header-btn-bdr-rds:        3px;
+
+// plan-header variables
+$plan-header-pdg:             8px;
+$plan-header-elem-ht:      30px;
+$plan-header-btn-bdr-rds:   $header-btn-bdr-rds;
+$plan-header-btn-font-size:       12px;
+$plan-header-btn-pdg-LR:      10px;
+
+// plan-board id#plan-board
+$plan-board-mrg-btm:   10px;
+$plan-board-pdg-btm:  10px;
+$inbox-wrapper-wdt:        270px;
+$inbox-wrapper-mgn:       0 5px 0 8px;
+$position-wrapper-mgn:       0 8px 0 5px;
+$position-wrapper-abs-left:  285px;
+$inbox-list-bdr-rds:   $header-btn-bdr-rds;
+$inbox-task-bdr-rds:   $inbox-list-bdr-rds;
+$inbox-bg-clr: #e2e4e6;
+$inbox-list-hd-pdg: 8px;
+$inbox-list-hd-txt-ft-sz: 15px;
+$inbox-list-hd-txt-ln-ht: 18px;
+$inbox-list-hd-txt-min-ht: $inbox-list-hd-txt-ln-ht + 1;
+$list-tasks-mgn: 0 4px;
+$list-tasks-pdg: 0 4px;
+$task-bg-clr: #ffffff;
+$task-bdr-btm: 1px solid #cccccc;
+$task-mgn-btm: 6px;
+$task-mx-wdt: 300px;
+$task-min-ht: 20px;
+$task-details-pdg: 6px 8px 4px;
+$open-task-composer-bdr-rds: 0 0 3px 3px;
+$open-task-composer-clr: #8c8c8c;
+$open-task-composer-pdg: 8px 10px;
+$open-task-composer-hvr-bg-clr: #cdd2d4;
+$open-task-composer-hvr-clr: #4d4d4d;

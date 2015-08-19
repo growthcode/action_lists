@@ -1,4 +1,33 @@
-<p id="notice"><%= notice %></p>
+<%= render 'plan_header' %>
 
-<%= link_to 'Edit', edit_plan_path(@plan) %> |
-<%= link_to 'Back', plans_path %>
+
+<div class="plan-canvas">
+  <div id="plan-board">
+
+    <div class="inbox-wrapper">
+      <div class="plan-list-content">
+        <div class="plan-list-head">
+          <h2 class="plan-list-head-text">Inbox</h2>
+        </div>
+        <%= render partial: 'inbox_tasks', locals: {tasks: @inbox} %>
+
+        <a href="#" class="open-task-composer">Add an action...</a>
+
+      </div>
+    </div>
+
+    <div class="position-wrapper">
+      <div class="plan-list-content">
+        <div class="plan-list-head">
+          <h2 class="plan-list-head-text">Task Positioning</h2>
+        </div>
+        <%= render partial: 'positioned_tasks', locals: {tasks: @positioned} %>
+
+        <% if @positioned.empty? %>
+          <a href="#" class="open-task-composer">Add an action...</a>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
