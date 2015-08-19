@@ -11,6 +11,7 @@ class PlansController < ApplicationController
   # GET /plans/1.json
   def show
     @inbox = @plan.tasks.where(position: nil)
+    @positioned = @plan.tasks.where.not(position: nil)
   end
 
   # GET /plans/new

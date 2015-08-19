@@ -28,8 +28,20 @@
   vertical-align: top;
   white-space: normal;
 }
+.position-wrapper {
+  position: absolute;
+  left: $position-wrapper-abs-left;
+  right: 0;
+  min-width: 270px;
+  margin: $position-wrapper-mgn;
+  height: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  white-space: normal;
+}
 
-.inbox-list-content {
+.plan-list-content {
   background: $inbox-bg-clr;
   border-radius: $inbox-list-bdr-rds;
   box-sizing: border-box;
@@ -37,12 +49,12 @@
   flex-direction: column;
   max-height: 100%;
   position: relative;
-  .inbox-list-head {
+  .plan-list-head {
     flex: 0 0 auto;
     padding: $inbox-list-hd-pdg;
     position: relative;
     min-height: $inbox-list-hd-txt-min-ht;
-    .inbox-list-head-text {
+    .plan-list-head-text {
       display: inline;
       font-size: $inbox-list-hd-txt-ft-sz;
       line-height: $inbox-list-hd-txt-ln-ht;
@@ -71,7 +83,7 @@
       border-radius: $inbox-task-bdr-rds;
       cursor: pointer;
       margin-bottom: $task-mgn-btm;
-      max-width: $task-mx-wdt;
+      // max-width: $task-mx-wdt;
       min-height: $task-min-ht;
       position: relative;
       z-index: 0;
