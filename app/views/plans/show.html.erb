@@ -9,7 +9,7 @@
         <div class="inbox-list-head">
           <h2 class="inbox-list-head-text"><%= "Inbox" %></h2>
         </div>
-        <%= render partial: 'list_tasks', locals: {tasks: @plan.tasks} %>
+        <%= render partial: 'list_tasks', locals: {tasks: @inbox} %>
 
         <a href="#" class="open-task-composer">Add an action...</a>
 
