@@ -1,25 +1,24 @@
 // Colors
-$body-bg-color:           rgb(0, 121, 191); //white; //
-$body-text-color:         #3f3f3f;
-$body-text-color-on-dark: white;
-$border-color:            #d9d9d9;
-$kbd-bg:                  tan !default; // for awesome-font bootstrap css fix #=> raw ap @user
+$body-bg-color:                  rgb(0, 121, 191); //white; //
+$body-text-color:                #3f3f3f;
+$body-text-color-on-dark:        white;
+$border-color:                   #d9d9d9;
+$kbd-bg:                         tan !default; // for awesome-font bootstrap css fix #=> raw ap @user
 
 // Font Families
-$helv-neue:        "Helvetica Neue", Arial, Helvetica, sans-serif;
-$sans:             'Roboto Condensed', sans-serif;;
-$serif:            'Droid serif', sans-serif;;
-
+$helv-neue:                      'Helvetica Neue', Arial, Helvetica, sans-serif;
+$sans:                           'Roboto Condensed', sans-serif;;
+$serif:                          'Droid serif', sans-serif;;
 
 // header variables
-$header-height: 40px;
-$header-padding: 5px;
-$header-btn-height: $header-height - ($header-padding * 2);
-$header-btn-border-radius: 3px;
+$header-height:                   40px;
+$header-padding:                  5px;
+$header-btn-height:               $header-height - ($header-padding * 2);
+$header-btn-border-radius:        3px;
 
 // plan-header variables
-$plan-header-padding: 8px;
-$plan-header-element-height: 30px;
-$plan-header-btn-border-radius: $header-btn-border-radius;
-$plan-header-btn-font-size: 12px;
-$plan-header-btn-padding-LR: 10px;
+$plan-header-padding:             8px;
+$plan-header-element-height:      30px;
+$plan-header-btn-border-radius:   $header-btn-border-radius;
+$plan-header-btn-font-size:       12px;
+$plan-header-btn-padding-LR:      10px;
