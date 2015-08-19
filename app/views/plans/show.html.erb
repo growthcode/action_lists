@@ -1,4 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<div class="plan-header">
+  <div class="plan-header-name">
+    <%= @plan.name %>
+  </div>
+  <div class="plan-header-menu">
+    <span class="fa fa-angle-left"></span> Menu
+  </div>
+</div>
+
+
+<hr>
+
 <%= link_to 'Edit', edit_plan_path(@plan) %> |
 <%= link_to 'Back', plans_path %>
