@@ -1,17 +1,17 @@
-<div class="plan-header">
-  <div class="plan-header-btn plan-header-name">
-    <%= @plan.name %>
-  </div>
-  <div class="plan-header-btn plan-header-menu">
-    <a href="#">
-      <span class="plan-header-icon icon-arrow-left"><i class="fa fa-angle-left plan-header-icon">&nbsp;&nbsp;</i></span>
-      <span class="plan-header-menu-text">Show Menu</span>
-    </a>
+<%= render 'plan_header' %>
+
+
+<div class="plan-canvas">
+  <div id="plan-board">
+
+    <div class="inbox-wrapper">
+      <div class="inbox-list-content">
+        <div class="inbox-list-head">
+          <h2 class="inbox-list-head-text"><%= "Inbox" %></h2>
+        </div>
+        <%= render partial: 'list_tasks', locals: {tasks: @plan.tasks} %>
+      </div>
+    </div>
+
   </div>
 </div>
-
-
-<hr>
-
-<%= link_to 'Edit', edit_plan_path(@plan) %> |
-<%= link_to 'Back', plans_path %>
