@@ -1,0 +1,28 @@
+body {
+  background: $body-bg-color;
+  background-size: cover;
+  overflow: hidden;
+  font-family: $helv-neue;
+  line-height: 18px;
+  font-size:   14px;
+  position: relative;
+}
+
+// Put the 'display: flex;' in an class in case I want to remove it from the body.
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.container-fluid.main {
+  padding-bottom: 80px;
+  margin-top: 61px; // accommodate the navbar
+}
+
+section.row {
+  &:first-of-type {
+    margin-top: 0;
+  }
+  margin-top: 20px;
+}

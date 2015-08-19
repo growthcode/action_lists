@@ -1,0 +1,94 @@
+#header {
+  background: rgba(0, 0, 0, .15);
+  height: $header-height;
+  padding: $header-padding;
+  position: relative;
+  flex: none;
+  z-index: 10;
+  ul {
+    padding: 0;
+    list-style-type: none;
+  }
+  .dropdown-toggle {
+    text-decoration: none;
+    color: $body-text-color-on-dark;
+  }
+  .dropdown-menu {
+    li a {
+      color: $body-text-color;
+      &:hover {
+        text-decoration: none;
+        background-color: #eeeeee;
+      }
+    }
+  }
+  .header-btn {
+    position: relative;
+    border-radius: $header-btn-border-radius;
+    background: rgba(255, 255, 255, .3);
+    color: $body-text-color-on-dark;
+    height: $header-btn-height;
+    line-height: $header-btn-height;
+    padding: 0 8px;
+    z-index: 50;
+    text-decoration: none;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0);
+      background: linear-gradient(to bottom,rgba(255,255,255,.5) 0,rgba(255,255,255,.3) 100%);
+    }
+  }
+  .header-btn-plans {
+    position: absolute;
+    left: $header-padding;
+  }
+  .header-btn-logo {
+    position: absolute;
+    height: $header-btn-height;
+    line-height: $header-btn-height;
+    font-size: 30px;
+    font-family: $sans;
+    color: $body-text-color-on-dark;
+    left: 50%;
+    width: 150px;
+    margin-left: -75px;
+    text-align: center;
+    background: none;
+    padding: 0;
+    opacity: .5;
+    z-index: 50;
+    text-decoration: none;
+    &:hover {
+      opacity: .8;
+    }
+  }
+  .header-btn-user {
+    position: absolute;
+    right: $header-padding;
+    padding-left: 0;
+    img {
+      vertical-align: top;
+      height: $header-btn-height;
+      border-top-left-radius: $header-btn-border-radius;
+      border-bottom-left-radius: $header-btn-border-radius;
+    }
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+  .logged-out {
+    position: absolute;
+    right: $header-padding;
+    padding-left: 0;
+    li {
+      padding-left: 8px;
+      display: inline-block;
+      margin-left: 5px;
+      float: left;
+      a {
+        color: $body-text-color-on-dark;
+        text-decoration: none;
+      }
+    }
+  }
+}

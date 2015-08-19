@@ -1,20 +1,22 @@
 <%# add navigation links to this file %>
-
-<li><%= link_to 'Action Lists', root_path, class: '' %></li>
+<li><%= link_to 'Action Lists', root_path, class: 'header-btn-logo' %></li>
 
 <% if user_signed_in? %>
-  <li class='dropdown'>
+  <li class='dropdown header-btn header-btn-user'>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
         <%= image_tag current_user.gravatar_url%>
         <%= current_user.full_name %>
     </a>
     <ul class="dropdown-menu">
-      <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-      <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
+      <li><%= link_to 'Edit account', edit_user_registration_path, class: "header-btn" %></li>
+      <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: "header-btn" %></li>
     </ul>
   </li>
 <% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
+  <li>
+    <ul class="logged-out">
+      <li class="header-btn"><%= link_to 'Sign in', new_user_session_path %></li>
+      <li class="header-btn"><%= link_to 'Sign up', new_user_registration_path %></li>
+    </ul>
+  </li>
 <% end %>
-
