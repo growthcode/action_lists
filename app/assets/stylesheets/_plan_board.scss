@@ -86,5 +86,23 @@
       }
     }
   }
-}
 
+  .open-task-composer {
+    border-radius: $open-task-composer-bdr-rds;
+    color: $open-task-composer-clr;
+    display: block;
+    flex: 0 0 auto;
+    padding: $open-task-composer-pdg;
+    position: relative;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    &:hover {
+      background-color: $open-task-composer-hvr-bg-clr;
+      color: $open-task-composer-hvr-clr;
+      text-decoration: underline;
+    }
+  }
+}
