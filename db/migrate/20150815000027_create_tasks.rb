@@ -7,7 +7,8 @@ class CreateTasks < ActiveRecord::Migration
       t.string     :person
       t.integer    :priority
       t.integer    :position #=> for sorting dynamically
-      t.boolean    :include
+      t.boolean    :included, default: false
+      t.boolean    :inbox, default: true
       t.integer    :minutes #=> task's average estimated minutes to complete
 
       t.belongs_to :plan
