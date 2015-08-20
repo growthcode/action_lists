@@ -2,6 +2,7 @@ $(document).ready(function() {
   $("#sortablePositioned, #sortableInbox").sortable({
     connectWith: ".connectedSortable",
     placeHolder: ".task",
+    cursor: "move",
     tolerance: "pointer",
     revert: '100',
     update: function(event, ui){
