@@ -23,9 +23,6 @@
         </div>
         <%= render partial: 'positioned_tasks', locals: {tasks: @positioned} %>
 
-        <% if @positioned.empty? %>
-          <a href="#" class="open-task-composer">Add an action...</a>
-        <% end %>
       </div>
     </div>
 

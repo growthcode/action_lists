@@ -45,6 +45,21 @@ ul.connectedSortable {
   display: inline-block;
   vertical-align: top;
   white-space: normal;
+  li.task-row {
+    display: flex;
+    .task-position {
+      flex: 0 0 auto;
+      line-height: 18px;
+      font-size: 14px;
+      padding-top: 5px;
+      padding-left: 2px;
+      padding-right: 8px;
+      margin-bottom: 6px;
+    }
+    .task {
+      flex: 1 1 auto;
+    }
+  }
 }
 
 .plan-list-content {

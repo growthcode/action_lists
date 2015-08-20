@@ -1,7 +1,8 @@
 <div class="list-tasks">
   <ul id="sortablePositioned" class="connectedSortable" data-sort-url=<%= sort_positioned_plan_tasks_path(@plan.id) %>>
     <% tasks.each do |task| %>
-      <li id="tasks_<%= task.id %>">
+      <li class="task-row" id="tasks_<%= task.id %>">
+        <div class="task-position"><%= task.position %></div>
         <div class="task">
           <div class="task-details">
             <div class="task-details-title">
