@@ -9,7 +9,8 @@
 #  person      :string
 #  priority    :integer
 #  position    :integer
-#  include     :boolean
+#  included    :boolean          default(FALSE)
+#  inbox       :boolean          default(TRUE)
 #  minutes     :integer
 #  plan_id     :integer
 #  created_at  :datetime
