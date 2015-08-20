@@ -9,10 +9,11 @@
         <div class="plan-list-head">
           <h2 class="plan-list-head-text">Inbox</h2>
         </div>
-        <%# binding.pry %>
-        <%= render partial: 'task_list', locals: {tasks: @inbox, task_sort_route: sort_inbox_plan_tasks_path(@plan.id)} %>
+        <div class="list-tasks">
+          <%= render partial: 'task_list', locals: {tasks: @inbox, task_sort_route: sort_inbox_plan_tasks_path(@plan.id)} %>
+          <%= render partial: 'task_composer' %>
+        </div>
 
-        <a href="#" class="open-task-composer">Add an action...</a>
 
       </div>
     </div>
@@ -22,8 +23,10 @@
         <div class="plan-list-head">
           <h2 class="plan-list-head-text">Task Positioning</h2>
         </div>
+        <div class="list-tasks">
         <%= render partial: 'task_list', locals: {tasks: @positioned, task_sort_route: sort_positioned_plan_tasks_path(@plan.id)} %>
 
+        </div>
       </div>
     </div>
 

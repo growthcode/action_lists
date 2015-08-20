@@ -118,11 +118,29 @@ ul.connectedSortable {
         overflow: auto;
         padding: 6px 8px 4px;
         position: relative;
+        min-height: 54px;
+        max-height: 162px;
         z-index: 10;
         .task-details-title {
           // tbd
         }
       }
+    }
+  }
+  .task-composer {
+    padding-bottom: 8px;
+      overflow: hidden;
+    .task-details {
+      overflow: hidden;
+        textarea {
+        border: none;
+        margin-bottom: 4px;
+        height: 100px;
+        padding: 0;
+        width: 100%;
+        resize: none;
+        outline: none;
+    }
     }
   }
 

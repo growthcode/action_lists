@@ -1,0 +1,28 @@
+<div class="task-composer hideeee">
+  <div class="task">
+    <div class="task-details">
+      <textarea class="task-composer-textarea js-task-deed"></textarea>
+      <!-- http://api.jqueryui.com/resizable/ -->
+    </div>
+  </div>
+
+<script>
+  // comeback and do the resizeable widget later
+  $("textarea").resizable({
+    maxWidth: 100%,
+    autoHide: true
+  });
+</script>
+
+
+
+  <div class="form-group task-controls">
+    <input class="primary confirm js-add-task" type="submit" value="Add">
+    <a class="icon-lg icon-close dark-hover js-cancel" href="#">
+    </a>
+    <a class="cc-opt icon-lg icon-dropdown-menu dark-hover js-cc-menu" href="#">
+    </a>
+  </div>
+</div>
+
+<a href="#" class="open-task-composer">Add an action...</a>
