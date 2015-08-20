@@ -105,3 +105,9 @@ end
     end
   end
 end
+
+
+user = User.last
+user.email = "growthcode@gmail.com"
+user.password = "asdfasdf"
+user.save

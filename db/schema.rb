@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150815003448) do
     t.datetime "updated_at"
   end
 
+  add_index "needs", ["position"], name: "index_needs_on_position", using: :btree
   add_index "needs", ["task_id"], name: "index_needs_on_task_id", using: :btree
 
   create_table "plans", force: :cascade do |t|
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150815003448) do
     t.datetime "updated_at"
   end
 
+  add_index "plans", ["position"], name: "index_plans_on_position", using: :btree
   add_index "plans", ["user_id"], name: "index_plans_on_user_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
@@ -45,7 +47,8 @@ ActiveRecord::Schema.define(version: 20150815003448) do
     t.string   "person"
     t.integer  "priority"
     t.integer  "position"
-    t.boolean  "include"
+    t.boolean  "included",    default: false
+    t.boolean  "inbox",       default: true
     t.integer  "minutes"
     t.integer  "plan_id"
     t.datetime "created_at"
@@ -53,6 +56,7 @@ ActiveRecord::Schema.define(version: 20150815003448) do
   end
 
   add_index "tasks", ["plan_id"], name: "index_tasks_on_plan_id", using: :btree
+  add_index "tasks", ["position"], name: "index_tasks_on_position", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
