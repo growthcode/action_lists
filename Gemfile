@@ -24,6 +24,7 @@ gem 'devise'
 gem 'jquery-ui-rails'
 gem 'annotate'
 gem 'gravtastic'
+gem 'faker'
 
 group :production do
   gem 'rails_12factor'
@@ -51,7 +52,6 @@ group :test do
 end
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
