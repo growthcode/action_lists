@@ -7,6 +7,7 @@ class CreatePlans < ActiveRecord::Migration
       t.belongs_to  :user
       t.timestamps
     end
-  add_index :plans, :user_id
+    add_index :plans, :user_id
+    add_index :plans, :position
   end
 end

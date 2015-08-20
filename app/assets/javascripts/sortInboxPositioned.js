@@ -1,0 +1,21 @@
+$(document).ready(function() {
+  $("#sortablePositioned, #sortableInbox").sortable({
+    connectWith: ".connectedSortable",
+    placeHolder: ".task",
+    tolerance: "pointer",
+    revert: '100',
+    update: function(event, ui){
+      console.log("in the sortable function");
+      $.post($(this).data('sort-url'), $(this).sortable('serialize'))
+      .success(function(data){
+        console.log("in the 'success' function");
+      })
+      .error(function(data){
+        console.log("in the 'failure' callback function")
+      })
+      .done(function(data){
+        console.log("in the 'done' function")
+      });
+    }
+  });
+});

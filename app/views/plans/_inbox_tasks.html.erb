@@ -1,14 +1,15 @@
 <div class="list-tasks">
-  <% tasks.each do |task| %>
-
-    <div class="task">
-      <div class="task-details">
-        <div class="task-details-title">
-          <%= task.deed %>
+  <ul id="sortableInbox" class="connectedSortable" data-sort-url=<%= sort_inbox_plan_tasks_path(@plan.id) %>>
+    <% tasks.each do |task| %>
+      <li id="inbox_<%= task.id %>">
+        <div class="task">
+          <div class="task-details">
+            <div class="task-details-title">
+              <%= task.deed %>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-
-
-  <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>
