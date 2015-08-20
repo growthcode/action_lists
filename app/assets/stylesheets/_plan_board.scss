@@ -33,6 +33,9 @@ ul.connectedSortable {
   display: inline-block;
   vertical-align: top;
   white-space: normal;
+  .task-position {
+    display: none;
+  }
 }
 .position-wrapper {
   position: absolute;
@@ -45,6 +48,9 @@ ul.connectedSortable {
   display: inline-block;
   vertical-align: top;
   white-space: normal;
+  .task-position {
+    display: block;
+  }
   li.task-row {
     display: flex;
     .task-position {
