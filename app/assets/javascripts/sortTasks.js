@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("#sortablePositioned, #sortableInbox").sortable({
+  $(".sortableInbox").sortable({
     connectWith: ".connectedSortable",
     placeHolder: ".task",
     cursor: "move",

@@ -1,4 +1,4 @@
-<div class="task-composer hideeee">
+<div class="task-composer hide">
   <div class="task">
     <div class="task-details">
       <textarea class="task-composer-textarea js-task-deed"></textarea>
@@ -6,16 +6,8 @@
     </div>
   </div>
 
-<script>
-  // comeback and do the resizeable widget later
-  $("textarea").resizable({
-    maxWidth: 100%,
-    autoHide: true
-  });
-</script>
-
   <div class="task-controls">
-    <input class="btn btn-success js-add-task" type="submit" value="Add">
+    <input class="btn btn-success js-add-task" type="submit" value="Add" data-create-url="<%= plan_tasks_path(@plan)%>">
     <a class="fa fa-times js-cancel" href="#"></a>
     <a class="cc-opt icon-lg icon-dropdown-menu dark-hover js-cc-menu" href="#"></a>
   </div>
