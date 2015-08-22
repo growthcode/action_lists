@@ -25,6 +25,7 @@ gem 'jquery-ui-rails'
 gem 'annotate'
 gem 'gravtastic'
 gem 'faker'
+gem 'autoprefixer-rails'
 
 group :production do
   gem 'rails_12factor'
