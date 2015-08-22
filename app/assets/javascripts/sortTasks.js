@@ -6,7 +6,7 @@ $(document).ready(function() {
     tolerance: "pointer",
     revert: '100',
     helper : 'clone',
-    start: function(event, ui) {
+    stop: function(event, ui) {
       $(ui.item).attr('style', '');
     },
     update: function(event, ui){
@@ -15,7 +15,6 @@ $(document).ready(function() {
       .success(function(data){
         console.log("in the 'success' function");
         $('.task-row').each(function(){
-          $(this).attr('style', '');
           $(this).children('.task-position').html($(this).index() + 1);
         })
       })
