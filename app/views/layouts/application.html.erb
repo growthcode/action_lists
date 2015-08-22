@@ -11,15 +11,16 @@
   </head>
   <body>
     <div id="flex-wrapper">
-    <%= render 'layouts/navigation' %>
-    <div id="main-content">
-      <div class="main-wrapper">
-        <%= render 'layouts/messages' %>
-        <div class="content">
-          <%= yield %>
+      <%= render 'layouts/navigation' %>
+      <div id="main-content">
+        <div class="main-wrapper">
+          <%= render 'layouts/messages' %>
+          <div class="content">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>
-    </div>
+    <div id="modals-container"></div>
   </body>
 </html>

@@ -16,3 +16,4 @@
 //= require bootstrap-sprockets
 //= require sortTasks
 //= require addTasks
+//= require editTaskModal

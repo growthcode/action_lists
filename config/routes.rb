@@ -42,13 +42,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :plans do
-    resources :tasks do
-      collection do
-        post :sort_inbox
-        post :sort_positioned
-      end
-    end
-  end
+  resources :plans
 
+  get 'plans/:plan_id/tasks/:id/edit_modal', to: 'tasks#edit_modal'
+  post 'plans/:plan_id/tasks', to: 'tasks#create', as: :plan_tasks
+  post 'plans/:plan_id/tasks/sort_inbox', to: 'tasks#sort_inbox', as: :sort_inbox_plan_tasks
+  post 'plans/:plan_id/tasks/sort_positioned', to: 'tasks#sort_positioned', as: :sort_positioned_plan_tasks
 end

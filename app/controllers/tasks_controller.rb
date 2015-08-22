@@ -1,4 +1,10 @@
 class TasksController < ApplicationController
+  before_action :set_task, only: [:edit_modal]
+
+  def edit_modal
+    modal = render_to_string(partial: 'tasks/edit_modal')
+    render json: {modal: modal}
+  end
 
   def create
     @plan = @plans.find(params[:plan_id])
@@ -32,5 +38,11 @@ class TasksController < ApplicationController
       task.save
     end
     render json: positioned
+  end
+
+  private
+
+  def set_task
+    @task = current_user.tasks.find(params[:id])
   end
 end
