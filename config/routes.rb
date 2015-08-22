@@ -17,16 +17,6 @@
 #                            PATCH  /users(.:format)                                devise/registrations#update
 #                            PUT    /users(.:format)                                devise/registrations#update
 #                            DELETE /users(.:format)                                devise/registrations#destroy
-#      sort_inbox_plan_tasks POST   /plans/:plan_id/tasks/sort_inbox(.:format)      tasks#sort_inbox
-# sort_positioned_plan_tasks POST   /plans/:plan_id/tasks/sort_positioned(.:format) tasks#sort_positioned
-#                 plan_tasks GET    /plans/:plan_id/tasks(.:format)                 tasks#index
-#                            POST   /plans/:plan_id/tasks(.:format)                 tasks#create
-#              new_plan_task GET    /plans/:plan_id/tasks/new(.:format)             tasks#new
-#             edit_plan_task GET    /plans/:plan_id/tasks/:id/edit(.:format)        tasks#edit
-#                  plan_task GET    /plans/:plan_id/tasks/:id(.:format)             tasks#show
-#                            PATCH  /plans/:plan_id/tasks/:id(.:format)             tasks#update
-#                            PUT    /plans/:plan_id/tasks/:id(.:format)             tasks#update
-#                            DELETE /plans/:plan_id/tasks/:id(.:format)             tasks#destroy
 #                      plans GET    /plans(.:format)                                plans#index
 #                            POST   /plans(.:format)                                plans#create
 #                   new_plan GET    /plans/new(.:format)                            plans#new
@@ -35,6 +25,10 @@
 #                            PATCH  /plans/:id(.:format)                            plans#update
 #                            PUT    /plans/:id(.:format)                            plans#update
 #                            DELETE /plans/:id(.:format)                            plans#destroy
+#                            GET    /plans/:plan_id/tasks/:id/edit_modal(.:format)  tasks#edit_modal
+#                 plan_tasks POST   /plans/:plan_id/tasks(.:format)                 tasks#create
+#      sort_inbox_plan_tasks POST   /plans/:plan_id/tasks/sort_inbox(.:format)      tasks#sort_inbox
+# sort_positioned_plan_tasks POST   /plans/:plan_id/tasks/sort_positioned(.:format) tasks#sort_positioned
 #
 
 Rails.application.routes.draw do
