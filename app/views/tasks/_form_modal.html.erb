@@ -1,4 +1,13 @@
 <div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <%= select_tag "task[priority]", options_for_select([1, 2, 3, 4, 5], @task.priority) %> 
+      <label for="">Priority Level</label>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
   <div class="col-sm-4">
     <i class="fa fa-clock-o"></i> Estimated Minutes <%= number_field_tag 'task[minutes]', @task.minutes, class: "form-control" %> 
   </div>
