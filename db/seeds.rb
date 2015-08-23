@@ -30,44 +30,8 @@ person_3 = {person: Faker::Name.name, role: Faker::Name.title}
 person_array = [hethe_person_1, person_2, person_3]
 
 
-# 1 seed with the same email and user information
-hethe = User.create!(
-  first_name: "Hethe",
-  last_name: "Berg",
-  email: "asdf@asdf.com",
-  password: 'asdfasdf',
-  password_confirmation: 'asdfasdf',
-  organization: 'Faker_Seed',
-  admin: true
-)
-
-plan_array.each do |plan|
-  hethe.plans.create!(name: plan)
-end
-
-plan_array.each do |plan|
-  hethe_plan_model_seed_hash = model_seed_hash
-  position_iterator = 0
-  10.times do
-    position_iterator += 1
-    person_array_local = person_array
-    random_person = person_array_local.sample
-    hethe.plans.find_by_name(plan).tasks.create!(
-        person: random_person[:person],
-        role: random_person[:role],
-        deed: Faker::Hacker.verb.capitalize + " the " + Faker::Hacker.ingverb + " " + Faker::Hacker.adjective + " " + Faker::Hacker.noun + ".",
-        description: Faker::Hacker.say_something_smart + " (Faker::Hacker.say_something_smart)",
-        priority: hethe_plan_model_seed_hash[:priority_array].sample,
-        position: position_iterator,
-        # state_of_action: hethe_plan_model_seed_hash[:state_of_action_array].sample,
-        minutes: hethe_plan_model_seed_hash[:minutes_array].sample
-      )
-  end
-end
-
-
-# 5 random seeds with plans and associated actions
-5.times do
+# 6 random seeds with plans and associated actions
+6.times do
   user_first_name = Faker::Name.first_name
   user_last_name = Faker::Name.last_name
   user_email = Faker::Internet.safe_email(user_first_name)
@@ -96,18 +60,43 @@ end
           person: random_person[:person],
           role: random_person[:role],
           deed: Faker::Hacker.verb.capitalize + " the " + Faker::Hacker.ingverb + " " + Faker::Hacker.adjective + " " + Faker::Hacker.noun + ".",
-          description: Faker::Hacker.say_something_smart + " (Faker::Hacker.say_something_smart)",
+          description: Faker::Hacker.say_something_smart,
           priority: plan_model_seed_hash[:priority_array].sample,
           position: position_iterator,
-          # state_of_action: plan_model_seed_hash[:state_of_action_array].sample,
           minutes: plan_model_seed_hash[:minutes_array].sample
         )
+    end
+    user.plans.find_by_name(plan).tasks.each do |task|
+      iterator = 0
+      complete_temp = true
+      10.times do
+        if iterator.odd?
+          complete_temp = false
+        else
+          complete_temp = true
+        end
+        task.needs.create!(
+          resource: Faker::Hacker::verb.capitalize + " " + Faker::Hacker::noun + " " + Faker::Hacker.ingverb + " to " + Faker::Hacker::noun + ". ",
+          notes: Faker::Hacker::say_something_smart + ". " + Faker::Hacker::say_something_smart  + ". ",
+          complete: complete_temp
+        )
+        iterator += 1
+      end
     end
   end
 end
 
+user_first = User.first.update(
+  first_name: "Hethe",
+  last_name: "Berg",
+  email: "asdf@asdf.com",
+  password: 'asdfasdf',
+  password_confirmation: 'asdfasdf',
+  organization: 'Faker_Seed',
+  admin: true
+)
 
-user = User.last
-user.email = "growthcode@gmail.com"
-user.password = "asdfasdf"
-user.save
+user_last = User.last.update(
+  email: "growthcode@gmail.com",
+  password: "asdfasdf"
+)

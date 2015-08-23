@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-sm-4">
+    <i class="fa fa-clock-o"></i> Estimated Minutes <%= number_field_tag 'task[minutes]', @task.minutes, class: "form-control" %> 
+  </div>
+  <div class="col-sm-4">
+    <i class="fa fa-building"></i> Position Responsible <%= text_field_tag 'task[role]', @task.role, class: "form-control" %>
+  </div>
+  <div class="col-sm-4">
+    <i class="fa fa-user"></i> Assigned To <%= text_field_tag 'task[person]', @task.person, class: "form-control" %>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="">Notes: </label><br>
+      <%= text_area_tag 'task[minutes]', @task.description, class: "form-control" %>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <%= check_box_tag 'task[included]', @task.included %> Preparations Complete?<br>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="form-group">
+      <label for="">Preparation TODO List: </label><br>
+      <% @task.needs.each do |need| %>
+        <div class="form-group">
+          <%= check_box_tag 'needs[complete]', 1, need.complete %> <%= need.resource %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@ class CreateNeeds < ActiveRecord::Migration
     create_table :needs do |t|
       t.string     :resource
       t.text       :notes
-      t.boolean    :complete
+      t.boolean    :complete, default: false
       t.integer    :position #=> for sorting dynamically
 
       t.belongs_to :task

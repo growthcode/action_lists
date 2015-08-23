@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150815003448) do
   create_table "needs", force: :cascade do |t|
     t.string   "resource"
     t.text     "notes"
-    t.boolean  "complete"
+    t.boolean  "complete",   default: false
     t.integer  "position"
     t.integer  "task_id"
     t.datetime "created_at"
