@@ -14,8 +14,10 @@ $(document).ready(function() {
       $.post($(this).data('sort-url'), $(this).sortable('serialize'))
       .success(function(data){
         console.log("in the 'success' function");
+        var count = 0
         $('.task-row').each(function(){
-          $(this).children('.task-position').html($(this).index() + 1);
+          count += 1
+          $(this).children('.task-position').html(count);
         })
       })
       .error(function(data){
