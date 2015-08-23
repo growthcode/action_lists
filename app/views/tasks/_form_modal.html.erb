@@ -42,7 +42,7 @@
       <label for="">Preparation TODO List: </label><br>
       <% @task.needs.each do |need| %>
         <div class="form-group">
-          <%= check_box_tag 'needs[complete]', 1, need.complete %> <%= need.resource %>
+          <%= check_box_tag 'needs[complete][]', 1, need.complete %> <%= need.resource %>
         </div>
       <% end %>
     </div>

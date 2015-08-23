@@ -19,7 +19,9 @@ class TasksController < ApplicationController
   end
 
   def update
+    @plan = @plans.find(params[:plan_id])
     binding.pry
+    redirect_to plan_path(@plan)
   end
 
   def sort_inbox
