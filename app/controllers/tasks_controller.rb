@@ -18,6 +18,10 @@ class TasksController < ApplicationController
     end
   end
 
+  def update
+    binding.pry
+  end
+
   def sort_inbox
     inbox = params[:tasks]
     inbox.each_with_index do |id, index|

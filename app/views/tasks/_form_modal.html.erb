@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="form-group">
-      <%= select_tag "task[priority]", options_for_select([1, 2, 3, 4, 5], @task.priority) %> 
+      <%= f.select :priority, options_for_select([1, 2, 3, 4, 5], @task.priority) %>
       <label for="">Priority Level</label>
     </div>
   </div>
@@ -9,13 +9,13 @@
 <br>
 <div class="row">
   <div class="col-sm-4">
-    <i class="fa fa-clock-o"></i> Estimated Minutes <%= number_field_tag 'task[minutes]', @task.minutes, class: "form-control" %> 
+    <i class="fa fa-clock-o"></i> Estimated Minutes <%= f.number_field :minutes, class: "form-control" %>
   </div>
   <div class="col-sm-4">
-    <i class="fa fa-building"></i> Position Responsible <%= text_field_tag 'task[role]', @task.role, class: "form-control" %>
+    <i class="fa fa-building"></i> Position Responsible <%= f.text_field :role, class: "form-control" %>
   </div>
   <div class="col-sm-4">
-    <i class="fa fa-user"></i> Assigned To <%= text_field_tag 'task[person]', @task.person, class: "form-control" %>
+    <i class="fa fa-user"></i> Assigned To <%= f.text_field :person, class: "form-control" %>
   </div>
 </div>
 <br>
@@ -23,7 +23,7 @@
   <div class="col-sm-12">
     <div class="form-group">
       <label for="">Notes: </label><br>
-      <%= text_area_tag 'task[minutes]', @task.description, class: "form-control" %>
+      <%= f.text_area :description, class: "form-control" %>
     </div>
   </div>
 </div>
@@ -31,7 +31,7 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="form-group">
-      <%= check_box_tag 'task[included]', @task.included %> Included?<br>
+      <%= f.check_box :included %> Included?<br>
     </div>
   </div>
 </div>
