@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.task-row').on('click', function(event) {
+  $('.connectedSortable').delegate('.task-row', "click", function(event) {
     event.preventDefault();
     /* Act on the event */
     $that = $(this);
