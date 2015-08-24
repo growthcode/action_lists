@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
   get 'plans/:plan_id/tasks/:id/edit_modal', to: 'tasks#edit_modal'
   patch 'plans/:plan_id/tasks/:id', to: 'tasks#update', as: :update_task
+  delete 'plans/:plan_id/tasks/:id', to: 'tasks#destroy', as: :destroy_task
   post 'plans/:plan_id/tasks', to: 'tasks#create', as: :plan_tasks
   post 'plans/:plan_id/tasks/sort_inbox', to: 'tasks#sort_inbox', as: :sort_inbox_plan_tasks
   post 'plans/:plan_id/tasks/sort_positioned', to: 'tasks#sort_positioned', as: :sort_positioned_plan_tasks

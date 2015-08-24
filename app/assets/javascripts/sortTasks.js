@@ -15,7 +15,7 @@ $(document).ready(function() {
       .success(function(data){
         console.log("in the 'success' function");
         var count = 0
-        $('.task-row').each(function(){
+        $('.position-wrapper .task-row').each(function(){
           count += 1
           $(this).children('.task-position').html(count);
         })

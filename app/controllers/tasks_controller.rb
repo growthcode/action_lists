@@ -6,6 +6,12 @@ class TasksController < ApplicationController
     render json: {modal: modal}
   end
 
+  def update
+    @plan = @plans.find(params[:plan_id])
+    @plan.tasks.find(params[:id]).update(task_params)
+    redirect_to plan_path(@plan)
+  end
+
   def create
     @plan = @plans.find(params[:plan_id])
     task_deed = params[:taskDeed]
@@ -18,11 +24,22 @@ class TasksController < ApplicationController
     end
   end
 
-  def update
+  def destroy
     @plan = @plans.find(params[:plan_id])
-    @plan.tasks.find(params[:id]).update(task_params)
-    redirect_to plan_path(@plan)
+    @task = Task.find(params[:id])
+    task_position = @task.position
+    tasks_array = @plan.tasks.select([:id, :position]).where("position > ?", "#{task_position}")
+    tasks_array.each do |task|
+      task.position -= 1
+      task.save
+    end
+    @task.destroy
+    respond_to do |format|
+      format.html { redirect_to plan_path(@plan), notice: 'Task was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
+
 
   def sort_inbox
     inbox = params[:tasks]
