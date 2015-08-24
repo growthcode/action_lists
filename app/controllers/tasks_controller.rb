@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
   def update
     @plan = @plans.find(params[:plan_id])
-    binding.pry
+    @plan.tasks.find(params[:id]).update(task_params)
     redirect_to plan_path(@plan)
   end
 
@@ -50,5 +50,9 @@ class TasksController < ApplicationController
 
   def set_task
     @task = current_user.tasks.find(params[:id])
+  end
+
+  def task_params
+    params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id)
   end
 end

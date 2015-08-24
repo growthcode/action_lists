@@ -7,17 +7,30 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         </h4>
       </div>
-      <%= form_for @task, url: update_task_path(@task.plan.id, @task.id) do |f| %>
-        <div class="modal-body">
-          <div class="container-fluid">
+      <div class="modal-body">
+
+        <div class="container-fluid">
+          <%= form_for @task, url: update_task_path(@task.plan.id, @task.id) do |f| %>
             <%= render partial: 'tasks/form_modal', locals: {f: f} %>
+          <% end %>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label for="">Preparation TODO List: </label><br>
+                <% @task.needs.each do |need| %>
+                  <div class="form-group">
+                    <%= check_box_tag 'needs[complete][]', 1, need.complete %> <%= need.resource %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
+
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <%= f.button "Save changes", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+      </div>
+<!--       <div class="modal-footer">
+      </div> -->
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div>

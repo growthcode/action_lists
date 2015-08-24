@@ -27,24 +27,22 @@
     </div>
   </div>
 </div>
+
 <br>
 <div class="row">
   <div class="col-sm-12">
-    <div class="form-group">
+
+    <div class="form- pull-left">
       <%= f.check_box :included %> Included?<br>
     </div>
-  </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-sm-12">
-    <div class="form-group">
-      <label for="">Preparation TODO List: </label><br>
-      <% @task.needs.each do |need| %>
-        <div class="form-group">
-          <%= check_box_tag 'needs[complete][]', 1, need.complete %> <%= need.resource %>
-        </div>
-      <% end %>
+
+    <div class="form-group pull-right">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <%= f.submit "Save changes", class: "btn btn-primary" %>
     </div>
+
   </div>
 </div>
+
+<hr style="border-top: 1px solid #e5e5e5;">
+<br>
