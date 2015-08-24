@@ -11,7 +11,8 @@
   white-space: nowrap;
   margin-bottom: $plan-board-mrg-btm;
   padding-bottom: $plan-board-pdg-btm;
-  overflow: hidden; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
+  overflow-x: auto; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
+  overflow-y: hidden; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
   position: absolute;
   top: 0;
   right: 0;
@@ -50,6 +51,7 @@ ul.connectedSortable {
   display: inline-block;
   vertical-align: top;
   white-space: normal;
+  height: 100%;
   .task-position {
     display: block;
   }
@@ -99,8 +101,8 @@ ul.connectedSortable {
   }
   .list-tasks {
     flex: 1 1 auto;
-    overflow-y: auto;
     overflow-x: hidden;
+    overflow-y: auto;
     margin: $list-tasks-mgn;
     padding: 0 4px;
     z-index: $list-tasks-pdg;
