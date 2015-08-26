@@ -1,5 +1,5 @@
 <ul class="connectedSortable sortableInbox" data-sort-url=<%= task_sort_route %>>
   <% tasks.each do |task| %>
-    <%= render partial: 'task', locals: {task: task} %>
+    <%= render partial: 'plans/task', locals: {task: task} %>
   <% end %>
 </ul>

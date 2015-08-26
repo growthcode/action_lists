@@ -1,21 +1,23 @@
 <%= render 'shared/plan_header' %>
 
+<%= render partial: 'list_directions' %>
+
 <div class="plan-canvas">
   <div id="plan-board">
 
-<!--     <div class="inbox-wrapper">
+    <div class="inbox-wrapper">
       <div class="plan-list-content">
         <div class="plan-list-head">
           <h2 class="plan-list-head-text">Inbox</h2>
         </div>
         <div class="list-tasks">
-          <%#= render partial: 'task_list', locals: {tasks: @inbox, task_sort_route: sort_inbox_plan_tasks_path(@plan.id)} %>
-          <%#= render partial: 'task_composer' %>
+          <%= render partial: 'plans/task_list', locals: {tasks: @plan.tasks, task_sort_route: sort_inbox_plan_tasks_path(@plan.id)} %>
+          <%= render partial: 'plans/task_composer' %>
         </div>
 
 
       </div>
-    </div> -->
+    </div>
 
     <div class="position-wrapper">
       <div class="plan-list-content">
@@ -23,7 +25,7 @@
           <h2 class="plan-list-head-text">Task Positioning</h2>
         </div>
         <div class="list-tasks">
-          <%#= render partial: 'task_list', locals: {tasks: @positioned, task_sort_route: sort_positioned_plan_tasks_path(@plan.id)} %>
+          <%= render partial: 'plans/task_list', locals: {tasks: @plan.tasks, task_sort_route: sort_positioned_plan_tasks_path(@plan.id)} %>
         </div>
       </div>
     </div>
