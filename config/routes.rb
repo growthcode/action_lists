@@ -44,4 +44,6 @@ Rails.application.routes.draw do
   post 'plans/:plan_id/tasks', to: 'tasks#create', as: :plan_tasks
   post 'plans/:plan_id/tasks/sort_inbox', to: 'tasks#sort_inbox', as: :sort_inbox_plan_tasks
   post 'plans/:plan_id/tasks/sort_positioned', to: 'tasks#sort_positioned', as: :sort_positioned_plan_tasks
+
+  get 'plans/:plan_id/tasks_wizard/list', to: 'tasks_wizard#list', as: 'plans_wizard_list'
 end

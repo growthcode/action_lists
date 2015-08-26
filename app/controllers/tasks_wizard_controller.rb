@@ -2,6 +2,7 @@ class TasksWizardController < ApplicationController
 
   # step 1, identify tasks
   def list
+    @plan = current_user.plans.find(params[:plan_id])
   end
 
   # step 2, rate importance level of tasks
