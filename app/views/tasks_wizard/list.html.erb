@@ -11,7 +11,7 @@
           <h2 class="plan-list-head-text">Inbox</h2>
         </div>
         <div class="list-tasks">
-          <%= render partial: 'plans/task_list', locals: {tasks: @plan.tasks, task_sort_route: sort_inbox_plan_tasks_path(@plan.id)} %>
+          <%= render partial: 'plans/task_list', locals: {tasks: Plan.new.tasks, task_sort_route: sort_inbox_plan_tasks_path(@plan.id)} %>
           <%= render partial: 'plans/task_composer' %>
         </div>
 
