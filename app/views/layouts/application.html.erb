@@ -10,14 +10,11 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="flex-wrapper">
       <%= render 'layouts/navigation' %>
-      <div id="main-content">
-        <div class="main-wrapper">
-          <%= render 'layouts/messages' %>
-          <div class="content">
-            <%= yield %>
-          </div>
+      <%= render 'layouts/messages' %>
+      <div class="container-fluid">
+        <div id="content-main">
+          <%= yield %>
         </div>
       </div>
     </div>
