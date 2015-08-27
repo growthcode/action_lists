@@ -3,5 +3,39 @@
 <%= render partial: 'list_directions' %>
 
 <div id="identified-tasks">
-  <%= render partial: 'task_board', locals: {tasks: @plan.tasks, list_head_text: "Actions", klasses: "", html_options: " data-sort-url=#{sort_positioned_plan_tasks_path(@plan.id)}"} %>
+  <div class="content-wrapper">
+    <div class="list-content">
+      <div class="list-head">
+        <h2 class="list-head-text">Actions</h2>
+      </div>
+      <div class="list-tasks">
+
+        <ul class="" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
+
+          <% @plan.tasks.each do |task| %>
+            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
+
+              <div class="task-position">
+                <%= task.position %>
+              </div>
+              <div class="task">
+                <div class="task-details">
+                  <%= task.deed %>
+                </div>
+              </div>
+              <div class="task-priority">
+                <div class="task-priority-details">
+                  <%= task.priority %>
+                </div>
+              </div>
+
+            </li>
+          <% end %>
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
 </div>
