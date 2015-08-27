@@ -1,1 +1,113 @@
 <%= render 'shared/plan_header' %>
+
+<%= render partial: 'list_directions' %>
+
+<div id="include-tasks">
+
+  <div class="content-wrapper">
+    <div class="list-content">
+      <div class="row">
+        <div class="col-md-4">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="list-head">
+                <h2 class="list-head-text">Role/Person</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="role-person-select">
+                <%= select_tag("priority", options_for_select(["-", "name one", "name two", "name three", "name four", "name_long five", "name_long six", "name_longest_yes seven", "name_longest_yes eight", "name_longest_yes nine"], @plan.tasks.first.priority || "-"), class: "form-control ") %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+                    <div class="row">
+            <div class="col-md-12">
+              <div class="list-head">
+                <h2 class="list-head-text">Sort Order</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="role-person-select">
+                <%= select_tag("priority", options_for_select(["-", "name one", "name two", "name three", "name four", "name_long five", "name_long six", "name_longest_yes seven", "name_longest_yes eight", "name_longest_yes nine"], @plan.tasks.first.priority || "-"), class: "form-control ") %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+                    <div class="row">
+            <div class="col-md-12">
+              <div class="list-head">
+                <h2 class="list-head-text"></h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="pull-right">
+                <div class="btn btn-success btn-lg">something</div>
+                &nbsp;
+                <div class="btn btn-success btn-lg">something</div>
+                &nbsp;&nbsp;
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="content-wrapper">
+    <div class="list-content">
+      <div class="list-head">
+        <h2 class="list-head-text">Actions</h2>
+      </div>
+      <div class="list-tasks">
+
+        <ul class="" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
+
+          <% @plan.tasks.each do |task| %>
+            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
+
+                <div class="task-position">
+                  <%= task.position %>
+                </div>
+                <div class="task">
+                  <div class="task-details">
+                    <%= task.deed %>
+                  </div>
+                </div>
+                <div class="include-task">
+                  <%= check_box_tag("priority", value="1", task.included, class: "") %>
+                </div>
+                <div class="task-priority">
+                  <div class="task-priority-details">
+                    <%= select_tag("priority", options_for_select(["-", 1, 2, 3, 4, 5], task.priority || "-"), class: "form-control") %>
+                  </div>
+                </div>
+
+            </li>
+          <% end %>
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+</div>
