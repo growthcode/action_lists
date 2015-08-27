@@ -106,6 +106,7 @@
       overflow-y: auto;
       margin: $list-tasks-mgn;
       padding: $list-tasks-pdg;
+      padding-bottom: 3px;
       .task-position {}
       .task {
         background-color: $task-bg-clr;
