@@ -139,13 +139,24 @@
         border-bottom-right-radius: $inbox-task-bdr-rds;
         .task-priority-details {
           overflow: auto;
-          padding: 4px 8px;
           margin: auto;
           position: relative;
           max-height: 162px;
           z-index: 10;
           text-align: center;
         }
+      }
+      .task-person {
+        background-color: $task-bg-clr;
+        border-bottom: $task-bdr-btm;
+        cursor: pointer;
+        margin-bottom: $task-mgn-btm;
+        min-height: $task-min-ht;
+        position: relative;
+        z-index: 0;
+        align-self: stretch;
+        border-top-right-radius: $inbox-task-bdr-rds;
+        border-bottom-right-radius: $inbox-task-bdr-rds;
       }
     }
   }
@@ -175,13 +186,40 @@
     background-color: transparent;
     border-bottom: none;
     order: 1;
-    // width: 60px;
     display: flex;
     align-items: center;
     padding-right: 8px;
-    .task-priority-details {
-      padding: 0;
-    }
+  }
+}
+
+#assign-tasks {
+  .task-row {
+    display: flex;
+    align-items: center;
+  }
+  .task {
+    order: 2;
+  }
+  .task-position {
+    display: none;
+  }
+  .task-priority {
+    flex: none;
+    background-color: transparent;
+    border-bottom: none;
+    order: 1;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+  .task-person {
+    flex: none;
+    background-color: transparent;
+    border-bottom: none;
+    order: 3;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
   }
 }
 
