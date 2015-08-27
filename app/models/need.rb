@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  resource   :string
 #  notes      :text
-#  complete   :boolean
+#  complete   :boolean          default(FALSE)
 #  position   :integer
 #  task_id    :integer
 #  created_at :datetime
