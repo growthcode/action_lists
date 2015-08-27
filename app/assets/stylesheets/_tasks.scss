@@ -156,6 +156,21 @@
   }
 }
 
+#rate-tasks {
+  .task-row {
+    // display: flex;
+  }
+  .task {
+  }
+  .task-position {
+    display: none;
+  }
+  .task-priority {
+    @extend .red;
+    // @extend .pull-left;
+  }
+}
+
 
 
 
