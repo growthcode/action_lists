@@ -76,9 +76,8 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  white-space: nowrap;
   position: relative;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
   .list-content {
     background: $inbox-bg-clr;
     border-radius: $inbox-list-bdr-rds;
@@ -87,6 +86,7 @@
       padding: $inbox-list-hd-pdg;
       position: relative;
       min-height: $inbox-list-hd-txt-min-ht;
+      white-space: nowrap;
       h2.list-head-text {
         display: inline;
         font-size: $inbox-list-hd-txt-ft-sz;
@@ -115,6 +115,7 @@
         margin-bottom: $task-mgn-btm;
         min-height: $task-min-ht;
         position: relative;
+        width: 100%;
         z-index: 0;
         .task-details {
           overflow: auto;
@@ -125,6 +126,7 @@
         }
       }
       .task-priority {
+        background-color: $task-bg-clr;
         border-bottom: $task-bdr-btm;
         cursor: pointer;
         margin-bottom: $task-mgn-btm;
@@ -141,6 +143,7 @@
           position: relative;
           max-height: 162px;
           z-index: 10;
+          text-align: center;
         }
       }
     }
@@ -158,16 +161,26 @@
 
 #rate-tasks {
   .task-row {
-    // display: flex;
+    display: flex;
+    align-items: center;
   }
   .task {
+    order: 2;
   }
   .task-position {
     display: none;
   }
   .task-priority {
-    @extend .red;
-    // @extend .pull-left;
+    background-color: transparent;
+    border-bottom: none;
+    order: 1;
+    // width: 60px;
+    display: flex;
+    align-items: center;
+    padding-right: 8px;
+    .task-priority-details {
+      padding: 0;
+    }
   }
 }
 
