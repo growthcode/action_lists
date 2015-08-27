@@ -34,7 +34,7 @@
                 </div>
                 <div class="task-priority">
                   <div class="task-priority-details">
-                    <%= select_tag("priority", options_for_select([1, 2, 3, 4, 5], task.priority || 4), class: "form-control") %>
+                    <%= select_tag("priority", options_for_select(["-", 1, 2, 3, 4, 5], task.priority || "-"), class: "form-control") %>
                   </div>
                 </div>
 
