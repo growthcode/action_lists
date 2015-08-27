@@ -1,32 +1,69 @@
-.modal {
-  background-color: rgba(0, 0, 0, 0.6);
-  .modal-content {
-    background-color: rgb(237, 239, 240);
-  }
-  .action-icon {
-    color: red;
-  }
-}
-
+// =================================================================
+// info map for scss the tasks
+// =================================================================
 .content-wrapper {
+  // //=> holds all, outer most wrapper
+  // position relative for position inner divs
+  // user-select none so dragging and dropping is smooth
+  // white-space no wrap for text/boxsizing predictability outside of the tasks containers which have an outline
   .list-content {
+    // //=> What we see on the view as the outer most container
+    // background color of the div container that holds the tasks, the tasks themselves will use a different container
+    // position relative for position the inner divs
+    // border radius of style appeal
     .list-head {
+      // //=> First div in the list content. Has no background because it is styled differently to be a title for the entire thing
+      // custom padding for helping line up content with the other divs inside of list-content
+      // position relative for position the inner divs
+      // min-height: Ensure size of div will fit - should be 1px bigger than line height of the inner text div
       h2.list-head-text {
+        // //=> styling of text of title. Should probably make a $font variable to make this quick if it is similar styling; overflow hidden, should only be on 1 line... have text-overflow style for it; word-wrap: break-word so reads better if cut off
       }
     }
     .list-tasks {
-      .task-pisition {}
+      // //=> lists ALL the tasks.
+      // has an overflow-x hidden so will look good if content left/right is bad, or styling slightly off. Don't won't left right scroll bar on this.  Want the tasks inside of it to get bigger up and down, not left to right.
+      // overflow-y: auto; so if tasks list run long and .list-content (overall container) has size limit, this will get a scroll bar for the overall tasks.
+      // Margin and padding used to line up a .task background color (inside this div) with the .list-head-text
+      .task-position {
+        // //=> Will need to be styled later, currently has none.
+        // depending on each page/view's purpose, could be differently styled
+        // [.task, .task-position, .task-priority] could all be adjusted slightly when styling to compensate for page's desired look.
+        // should have a containing ID tag to compensate for this in only those situations.
+      }
       .task {
+        // //=> the thing we see inside of the board here as a separate task... has it's own background and bottom margin to seperate itself from other tasks.... which would be of the same class (.task)
+        // has a border bottom to give it a look like it is on top of the containing dive with a background.
+        // has a border radius for softer look and feel
+        // cursor pointer for the 'link' feel, UX is so the user knows they can click it... will be the click, drag, drop for the app.
+        // needs a minimum height to ensure proper look incase empty inner details div.
+        // position relative for position the inner divs
+        // depending on each page/view's purpose, could be differently styled
+        // [.task, .task-position, .task-priority] could all be adjusted slightly when styling to compensate for page's desired look.
+        // should have a containing ID tag to compensate for this in only those situations.
         .task-details {
+          // //=> task written details.  It's size adjusts from a normal min-height even when it has not content, given to it by the containing div (.task).
+          // has a max-height so if the inner div is too big doesn't ruin the UX of the rest of the page.
+          // has overflow auto incase text is really long but because of max-height, even long text won't ruin UX of overall page.
+          // custom padding to fit in (.task) nicely
+          // position relative for position the inner divs
         }
       }
       .task-priority {
+        // //=> this will be showing the priority number of the tasks
+        // depending on each page/view's purpose, could be differently styled
+        // [.task, .task-position, .task-priority] could all be adjusted slightly when styling to compensate for page's desired look.
+        // should have a containing ID tag to compensate for this in only those situations.
         .task-priority-details {
+          // //=> text of the priority level
+          // will likely be the same things as (.task-details) but could be different.
         }
       }
     }
   }
 }
+// =================================================================
+// =================================================================
 
 .content-wrapper {
   -webkit-user-select: none;
@@ -34,25 +71,12 @@
   -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
-  // margin-bottom: $plan-board-mrg-btm;
-  // padding-bottom: $plan-board-pdg-btm;
   position: relative;
-  // top: 0;
-  // right: 0;
-  // bottom: 0;
-  // left: 0;
-  // overflow-x: auto; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
-  // overflow-y: hidden; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
   .list-content {
     background: $inbox-bg-clr;
     border-radius: $inbox-list-bdr-rds;
-    box-sizing: border-box;
-    // display: flex;
-    // flex-direction: column;
-    // max-height: 100%;
     position: relative;
     .list-head {
-      // flex: 0 0 auto;
       padding: $inbox-list-hd-pdg;
       position: relative;
       min-height: $inbox-list-hd-txt-min-ht;
@@ -71,18 +95,14 @@
       }
     }
     .list-tasks {
-      // flex: 1 1 auto;
       overflow-x: hidden;
       overflow-y: auto;
       margin: $list-tasks-mgn;
       padding: $list-tasks-pdg;
-      z-index: 1;
       .task-position {}
       .task {
         background-color: $task-bg-clr;
         border-bottom: $task-bdr-btm;
-        // border-top-left-radius: $inbox-task-bdr-rds;
-        // border-bottom-left-radius: $inbox-task-bdr-rds;
         border-radius: $inbox-list-bdr-rds;
         cursor: pointer;
         margin-bottom: $task-mgn-btm;
@@ -119,3 +139,130 @@
     }
   }
 }
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  .modal-content {
+    background-color: rgb(237, 239, 240);
+  }
+  .action-icon {
+    color: red;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// =======================================================
+// working div's before I removed the commented out code.  Keeping for now as a reference to what worked before.
+// =======================================================
+// .content-wrapper {
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+//   white-space: nowrap;
+//   // margin-bottom: $plan-board-mrg-btm;
+//   // padding-bottom: $plan-board-pdg-btm;
+//   position: relative;
+//   // top: 0;
+//   // right: 0;
+//   // bottom: 0;
+//   // left: 0;
+//   // overflow-x: auto; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
+//   // overflow-y: hidden; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
+//   .list-content {
+//     background: $inbox-bg-clr;
+//     border-radius: $inbox-list-bdr-rds;
+//     // display: flex;
+//     // flex-direction: column;
+//     // max-height: 100%;
+//     position: relative;
+//     .list-head {
+//       // flex: 0 0 auto;
+//       padding: $inbox-list-hd-pdg;
+//       position: relative;
+//       min-height: $inbox-list-hd-txt-min-ht;
+//       h2.list-head-text {
+//         display: inline;
+//         font-size: $inbox-list-hd-txt-ft-sz;
+//         line-height: $inbox-list-hd-txt-ln-ht;
+//         margin: 0;
+//         min-height: $inbox-list-hd-txt-min-ht;
+//         min-width: 30px;
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         word-wrap: break-word;
+//         font-weight: bold;
+//         font-family: $helv-neue;
+//       }
+//     }
+//     .list-tasks {
+//       // flex: 1 1 auto;
+//       overflow-x: hidden;
+//       overflow-y: auto;
+//       margin: $list-tasks-mgn;
+//       padding: $list-tasks-pdg;
+//       z-index: 1;
+//       .task-position {}
+//       .task {
+//         background-color: $task-bg-clr;
+//         border-bottom: $task-bdr-btm;
+//         // border-top-left-radius: $inbox-task-bdr-rds;
+//         // border-bottom-left-radius: $inbox-task-bdr-rds;
+//         border-radius: $inbox-list-bdr-rds;
+//         cursor: pointer;
+//         margin-bottom: $task-mgn-btm;
+//         min-height: $task-min-ht;
+//         position: relative;
+//         z-index: 0;
+//         .task-details {
+//           overflow: auto;
+//           padding: 6px 8px 4px;
+//           position: relative;
+//           max-height: 162px;
+//           z-index: 10;
+//         }
+//       }
+//       .task-priority {
+//         border-bottom: $task-bdr-btm;
+//         cursor: pointer;
+//         margin-bottom: $task-mgn-btm;
+//         min-height: $task-min-ht;
+//         position: relative;
+//         z-index: 0;
+//         align-self: stretch;
+//         border-top-right-radius: $inbox-task-bdr-rds;
+//         border-bottom-right-radius: $inbox-task-bdr-rds;
+//         .task-priority-details {
+//           overflow: auto;
+//           padding: 4px 8px;
+//           margin: auto;
+//           position: relative;
+//           max-height: 162px;
+//           z-index: 10;
+//         }
+//       }
+//     }
+//   }
+// }
+// =======================================================
+// =======================================================
