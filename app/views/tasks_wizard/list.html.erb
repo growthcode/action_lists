@@ -2,21 +2,6 @@
 
 <%= render partial: 'list_directions' %>
 
-<div class="content-wrapper">
-  <div class="list-content">
-    <div class="list-head">
-      <h2 class="list-head-text">Actions</h2>
-    </div>
-    <div class="list-tasks">
-      <!-- <div class="task-position">class="task-position"</div> -->
-      <div class="task">
-        <div class="task-details">div class="task-details"</div>
-      </div>
-<!--         <div class="task-priority">
-        <div class="task-priority-details">
-          class="task-priority-details"
-        </div>
-      </div> -->
-    </div>
-  </div>
+<div id="identified-tasks">
+  <%= render partial: 'task_board', locals: {tasks: @plan.tasks, list_head_text: "Actions", klasses: "", html_options: " data-sort-url=#{sort_positioned_plan_tasks_path(@plan.id)}"} %>
 </div>
