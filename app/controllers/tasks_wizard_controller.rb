@@ -2,10 +2,19 @@ class TasksWizardController < ApplicationController
 
   # step 1, identify tasks
   def list
+    @task = Task.new
     @plan = current_user.plans.find(params[:plan_id])
     @previous_step_path = plan_path(@plan.id)
     @next_step_path = plans_wizard_rate_path(@plan.id)
   end
+
+  def create_task
+    @task = Task.new(task_params)
+    render json: @task
+  end
+
+
+
 
   # step 2, rate importance level of tasks
   def rate
@@ -40,5 +49,15 @@ class TasksWizardController < ApplicationController
     @plan = current_user.plans.find(params[:plan_id])
     @previous_step_path = plans_wizard_position_path(@plan.id)
     @next_step_path = plan_path(@plan.id)
+  end
+
+  private
+
+  def set_task
+    @task = current_user.tasks.find(params[:id])
+  end
+
+  def task_params
+    params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id)
   end
 end

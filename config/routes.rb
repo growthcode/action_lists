@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   post 'plans/:plan_id/tasks/sort_positioned', to: 'tasks#sort_positioned', as: :sort_positioned_plan_tasks
 
   get 'plans/:plan_id/tasks_wizard/list', to: 'tasks_wizard#list', as: 'plans_wizard_list'
+  post 'plans/:plan_id/task_wizard/create_task', to: 'tasks_wizard#create_task', as: 'create_task_wizard'
+
   get 'plans/:plan_id/tasks_wizard/rate', to: 'tasks_wizard#rate', as: 'plans_wizard_rate'
   get 'plans/:plan_id/tasks_wizard/assign', to: 'tasks_wizard#assign', as: 'plans_wizard_assign'
   get 'plans/:plan_id/tasks_wizard/include', to: 'tasks_wizard#include', as: 'plans_wizard_include'
