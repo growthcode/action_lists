@@ -107,7 +107,27 @@
       margin: $list-tasks-mgn;
       padding: $list-tasks-pdg;
       padding-bottom: 3px;
-      .task-position {}
+      .task-position {
+        background-color: $task-bg-clr;
+        border-bottom: $task-bdr-btm;
+        cursor: pointer;
+        margin-bottom: $task-mgn-btm;
+        min-height: $task-min-ht;
+        position: relative;
+        z-index: 0;
+        align-self: stretch;
+        border-top-right-radius: $inbox-task-bdr-rds;
+        border-bottom-right-radius: $inbox-task-bdr-rds;
+        .task-position-details {
+          overflow: auto;
+          margin: auto;
+          position: relative;
+          max-height: 162px;
+          z-index: 10;
+          text-align: center;
+          padding: 6px 8px 4px;
+        }
+      }
       .task {
         background-color: $task-bg-clr;
         border-bottom: $task-bdr-btm;
@@ -256,9 +276,23 @@
   }
 }
 
-#position-tasks {
+#position-tasks, #inbox-tasks {
+  .task-row {
+    display: flex;
+    align-items: stretch;
+  }
+  .task {
+    order: 2;
+  }
   .task-position {
-    display: none;
+    flex: none;
+    background-color: #3797FC;
+    color: white;
+    border-radius: 50%;
+    order: 1;
+    align-self: center;
+    margin-right: 8px;
+    min-width: 30px;
   }
   .task-priority {
     display: none;
@@ -266,115 +300,14 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// =======================================================
-// working div's before I removed the commented out code.  Keeping for now as a reference to what worked before.
-// =======================================================
-// .content-wrapper {
-//   -webkit-user-select: none;
-//   -moz-user-select: none;
-//   -ms-user-select: none;
-//   user-select: none;
-//   white-space: nowrap;
-//   // margin-bottom: $plan-board-mrg-btm;
-//   // padding-bottom: $plan-board-pdg-btm;
-//   position: relative;
-//   // top: 0;
-//   // right: 0;
-//   // bottom: 0;
-//   // left: 0;
-//   // overflow-x: auto; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
-//   // overflow-y: hidden; // (To sidescroll) overflow-x: auto; overflow-y: hidden;
-//   .list-content {
-//     background: $inbox-bg-clr;
-//     border-radius: $inbox-list-bdr-rds;
-//     // display: flex;
-//     // flex-direction: column;
-//     // max-height: 100%;
-//     position: relative;
-//     .list-head {
-//       // flex: 0 0 auto;
-//       padding: $inbox-list-hd-pdg;
-//       position: relative;
-//       min-height: $inbox-list-hd-txt-min-ht;
-//       h2.list-head-text {
-//         display: inline;
-//         font-size: $inbox-list-hd-txt-ft-sz;
-//         line-height: $inbox-list-hd-txt-ln-ht;
-//         margin: 0;
-//         min-height: $inbox-list-hd-txt-min-ht;
-//         min-width: 30px;
-//         overflow: hidden;
-//         text-overflow: ellipsis;
-//         word-wrap: break-word;
-//         font-weight: bold;
-//         font-family: $helv-neue;
-//       }
-//     }
-//     .list-tasks {
-//       // flex: 1 1 auto;
-//       overflow-x: hidden;
-//       overflow-y: auto;
-//       margin: $list-tasks-mgn;
-//       padding: $list-tasks-pdg;
-//       z-index: 1;
-//       .task-position {}
-//       .task {
-//         background-color: $task-bg-clr;
-//         border-bottom: $task-bdr-btm;
-//         // border-top-left-radius: $inbox-task-bdr-rds;
-//         // border-bottom-left-radius: $inbox-task-bdr-rds;
-//         border-radius: $inbox-list-bdr-rds;
-//         cursor: pointer;
-//         margin-bottom: $task-mgn-btm;
-//         min-height: $task-min-ht;
-//         position: relative;
-//         z-index: 0;
-//         .task-details {
-//           overflow: auto;
-//           padding: 6px 8px 4px;
-//           position: relative;
-//           max-height: 162px;
-//           z-index: 10;
-//         }
-//       }
-//       .task-priority {
-//         border-bottom: $task-bdr-btm;
-//         cursor: pointer;
-//         margin-bottom: $task-mgn-btm;
-//         min-height: $task-min-ht;
-//         position: relative;
-//         z-index: 0;
-//         align-self: stretch;
-//         border-top-right-radius: $inbox-task-bdr-rds;
-//         border-bottom-right-radius: $inbox-task-bdr-rds;
-//         .task-priority-details {
-//           overflow: auto;
-//           padding: 4px 8px;
-//           margin: auto;
-//           position: relative;
-//           max-height: 162px;
-//           z-index: 10;
-//         }
-//       }
-//     }
-//   }
-// }
-// =======================================================
-// =======================================================
+#index-tasks {
+  display: flex;
+  #inbox-tasks {
+    width: 270px;
+    flex: none;
+    margin-right: 8px;
+  }
+  #position-tasks {
+    width: 100%;
+  }
+}

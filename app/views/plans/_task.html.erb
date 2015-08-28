@@ -1,5 +1,9 @@
 <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
-  <div class="task-position"><%= task.position %></div>
+  <div class="task-position">
+    <div class="task-position-details">
+      <%= task.position %>
+    </div>
+  </div>
   <div class="task">
     <div class="task-details">
       <div class="task-details-title">
