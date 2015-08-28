@@ -1,1 +1,42 @@
 <%= render 'shared/plan_header' %>
+
+<%= render partial: 'list_directions' %>
+
+<div id="preparation-tasks">
+
+  <div class="content-wrapper">
+    <div class="list-content">
+      <div class="list-head">
+        <h2 class="list-head-text">Actions</h2>
+      </div>
+      <div class="list-tasks">
+
+        <ul class="" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
+
+          <% @plan.tasks.each do |task| %>
+            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
+
+                <div class="task">
+                  <div class="task-details">
+                    <%= task.deed %>
+                  </div>
+                </div>
+                <div class="include-task">
+                  <%= check_box_tag("priority", value="1", task.needs.present?, class: "") %>
+                </div>
+                <div class="todos-task">
+                  <div class="task-todos-details">
+                    <%= task.needs.count %>
+                  </div>
+                </div>
+
+            </li>
+          <% end %>
+
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+</div>

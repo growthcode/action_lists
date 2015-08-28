@@ -182,6 +182,20 @@
   }
 }
 
+// main plan page, makes inbox horizontal
+#index-tasks {
+  display: flex;
+  #inbox-tasks {
+    width: 270px;
+    flex: none;
+    margin-right: 8px;
+  }
+  #position-tasks {
+    width: 100%;
+  }
+}
+
+
 #identified-tasks {
   .task-position {
     display: none;
@@ -300,14 +314,44 @@
 }
 
 
-#index-tasks {
-  display: flex;
-  #inbox-tasks {
-    width: 270px;
-    flex: none;
-    margin-right: 8px;
+
+
+
+
+#preparation-tasks {
+  .task-row {
+    display: flex;
+    align-items: stretch;
   }
-  #position-tasks {
-    width: 100%;
+  .task {
+    order: 2;
+  }
+  .include-task {
+    flex: none;
+    order: 1;
+    padding-left: 3px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+  .todos-task {
+    background-color: $task-bg-clr;
+    border-bottom: $task-bdr-btm;
+    border-radius: $inbox-list-bdr-rds;
+    cursor: pointer;
+    margin-bottom: $task-mgn-btm;
+    min-height: $task-min-ht;
+    position: relative;
+    flex: none;
+    order: 3;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+  }
+  .task-todos-details {
+    min-width: 40px;
+    text-align: center;
   }
 }
+
