@@ -49,6 +49,7 @@ class TasksWizardController < ApplicationController
   def assign_update
     @plan = @plans.find(params[:plan_id])
     @task = @plan.tasks.find(params[:id])
+    binding.pry
     if params[:task][:role].present?
       if @task.update(task_params)
         render json: {result: "Successfully updated role.", rolePresent: true}
