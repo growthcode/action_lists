@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('.js-wizard-submit-task').on('click', createWizardTaskSubmit);
-  $('.js-wizard-task-deed').on('keyup', createTaskEnter)
+  $('.js-wizard-task-deed').on('keyup', createWizardTaskEnter)
 });
 
 function createWizardTaskSubmit(event) {
@@ -9,7 +9,7 @@ function createWizardTaskSubmit(event) {
   var formdata = $(this).parent('form').serializeArray();
   var data = {};
   $(formdata).each(function(index, obj){
-      data[obj.name] = obj.value;
+      data[obj.name] = obj.value.trim();
   });
   $.ajax({
     url: url,
@@ -18,8 +18,8 @@ function createWizardTaskSubmit(event) {
   })
   .done(function(data) {
     console.log("success");
+    $('.list-tasks ul').prepend(data.taskRow)
     $('.js-wizard-task-deed').val('')
-    debugger
   })
   .fail(function(data) {
     console.log("error");
@@ -29,9 +29,9 @@ function createWizardTaskSubmit(event) {
   });
 }
 
-function createTaskEnter(event) {
+function createWizardTaskEnter(event) {
   if (event.which == 13) {
-    createTaskSubmit(event);
+    createWizardTaskSubmit(event);
     return false;
   }
 }

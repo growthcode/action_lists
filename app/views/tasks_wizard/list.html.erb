@@ -22,7 +22,7 @@
 
         <ul class="" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
 
-          <% @plan.tasks.each do |task| %>
+          <% @tasks.each do |task| %>
             <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
 
               <div class="task-position">

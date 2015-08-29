@@ -2,19 +2,23 @@ class TasksWizardController < ApplicationController
 
   # step 1, identify tasks
   def list
-    @task = Task.new
     @plan = current_user.plans.find(params[:plan_id])
+    @tasks = @plan.tasks.order(:created_at).reverse
+    @task = Task.new
     @previous_step_path = plan_path(@plan.id)
     @next_step_path = plans_wizard_rate_path(@plan.id)
   end
 
   def create_task
-    @task = Task.new(task_params)
-    render json: @task
+    @plan = @plans.find(params[:plan_id])
+    @task = @plan.tasks.new(task_params)
+    if @task.save
+      taskRow = render_to_string(partial: 'tasks_wizard/list_task',locals: {task: @task})
+      render json: {taskRow: taskRow}
+    else
+      render json: {error: "Task did not save"}
+    end
   end
-
-
-
 
   # step 2, rate importance level of tasks
   def rate
