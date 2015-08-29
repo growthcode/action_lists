@@ -16,6 +16,7 @@ class CreateTasks < ActiveRecord::Migration
     end
     add_index :tasks, :plan_id
     add_index :tasks, :position
+    add_index :tasks, :priority
     add_index :tasks, :created_at
   end
 end

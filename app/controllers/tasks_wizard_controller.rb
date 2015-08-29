@@ -41,6 +41,7 @@ class TasksWizardController < ApplicationController
   # step 3, assign a position or person to do action
   def assign
     @plan = current_user.plans.find(params[:plan_id])
+    @tasks = @plan.tasks.order(:priority)
     @previous_step_path = plans_wizard_rate_path(@plan.id)
     @next_step_path = plans_wizard_include_path(@plan.id)
   end
