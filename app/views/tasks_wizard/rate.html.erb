@@ -13,7 +13,7 @@
 
         <ul class="" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
 
-          <% @plan.tasks.each do |task| %>
+          <% @tasks.each do |task| %>
             <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
 
                 <div class="task-position">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="task-priority">
                   <div class="task-priority-details">
-                    <%= select_tag("priority", options_for_select(["-", 1, 2, 3, 4, 5], task.priority || "-"), class: "form-control") %>
+                    <%= select_tag("priority", options_for_select(["-", 1, 2, 3, 4, 5], task.priority || "-"), class: "form-control priority-select-tag", data: {url: update_rate_task_wizard_path(@plan.id, task.id)}) %>
                   </div>
                 </div>
 

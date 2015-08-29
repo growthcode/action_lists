@@ -17,4 +17,5 @@
 //= require sortTasks
 //= require addTasks
 //= require wizardAddTask
+//= require wizardRateTask
 //= require editTaskModal

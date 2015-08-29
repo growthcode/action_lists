@@ -57,6 +57,8 @@ Rails.application.routes.draw do
   post 'plans/:plan_id/task_wizard/create_task', to: 'tasks_wizard#create_task', as: 'create_task_wizard'
 
   get 'plans/:plan_id/tasks_wizard/rate', to: 'tasks_wizard#rate', as: 'plans_wizard_rate'
+  patch 'plans/:plan_id/tasks_wizard/:id/rate_update', to: 'tasks_wizard#rate_update', as: 'update_rate_task_wizard'
+
   get 'plans/:plan_id/tasks_wizard/assign', to: 'tasks_wizard#assign', as: 'plans_wizard_assign'
   get 'plans/:plan_id/tasks_wizard/include', to: 'tasks_wizard#include', as: 'plans_wizard_include'
   get 'plans/:plan_id/tasks_wizard/position', to: 'tasks_wizard#position', as: 'plans_wizard_position'

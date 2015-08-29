@@ -23,8 +23,19 @@ class TasksWizardController < ApplicationController
   # step 2, rate importance level of tasks
   def rate
     @plan = current_user.plans.find(params[:plan_id])
+    @tasks = @plan.tasks.where(priority: nil)
     @previous_step_path = plans_wizard_list_path(@plan.id)
     @next_step_path = plans_wizard_assign_path(@plan.id)
+  end
+
+  def rate_update
+    @plan = @plans.find(params[:plan_id])
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      render json: {result: 'success'}
+    else
+      render json: {result: 'error'}
+    end
   end
 
   # step 3, assign a position or person to do action
