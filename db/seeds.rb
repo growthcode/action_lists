@@ -77,7 +77,7 @@ User.first.update({
   admin: true
 })
 
-User.last.update({
+user_last = User.last.update({
   email: "growthcode@gmail.com",
   password: "asdfasdf"
 })
