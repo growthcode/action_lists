@@ -34,10 +34,10 @@ end
 
   plan_array.each do |plan|
     plan_model_seed_hash = {priority_array: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5], state_of_action_array: ["complete", "complete", "not ready", "not ready","complete", "not ready", "not ready","complete", "not ready", "not ready"], minutes_array: [30, 60, 90, 15, 15, 30, 60, 90, 15, 15]}
+    current_plan = user.plans.find_by_name(plan)
     position_iterator = 0
     10.times do
       position_iterator += 1
-      current_plan = user.plans.find_by_name(plan)
       role = current_plan.roles.create!({
           doer: Faker::Name.title
       })
@@ -50,7 +50,7 @@ end
         role_id: role.id,
       })
     end
-    user.plans.find_by_name(plan).tasks.each do |task|
+    current_plan.tasks.each do |task|
       iterator = 0
       10.times do
         task.needs.create!({
