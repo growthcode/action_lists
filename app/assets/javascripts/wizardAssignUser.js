@@ -13,7 +13,9 @@ $(document).ready(function() {
     })
     .done(function(data) {
       console.log("success");
-      $parent.slideUp()
+      if (data.rolePresent) {
+        $parent.slideUp()
+      }
     })
     .fail(function(data) {
       console.log("error");

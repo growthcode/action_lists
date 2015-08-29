@@ -49,14 +49,14 @@ class TasksWizardController < ApplicationController
   def assign_update
     @plan = @plans.find(params[:plan_id])
     @task = @plan.tasks.find(params[:id])
-    if params[:task][:role]
+    if params[:task][:role].present?
       if @task.update(task_params)
-        render json: {result: "Successfully updated role."}
+        render json: {result: "Successfully updated role.", rolePresent: true}
       else
-        render json: {result: "Error, did not save."}
+        render json: {result: "Error, did not save.", rolePresent: false}
       end
     else
-      render json: {result: "Did not select a role."}
+      render json: {result: "Did not select a role.", rolePresent: false}
     end
   end
 
