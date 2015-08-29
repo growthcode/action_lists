@@ -12,6 +12,7 @@
 
 class Plan < ActiveRecord::Base
   has_many :tasks, inverse_of: :plan, dependent: :destroy
+  has_many :roles, inverse_of: :plan, dependent: :destroy
   has_many :needs, through: :tasks
   belongs_to :user, inverse_of: :plans
 end
