@@ -46,6 +46,20 @@ class TasksWizardController < ApplicationController
     @next_step_path = plans_wizard_include_path(@plan.id)
   end
 
+  def assign_update
+    @plan = @plans.find(params[:plan_id])
+    @task = @plan.tasks.find(params[:id])
+    if @task.role
+      if @task.update(task_params)
+        render json: {result: "Successfully updated role."}
+      else
+        render json: {result: "Error, did not save."}
+      end
+    else
+      render json: {result: "Did not select a role."}
+    end
+  end
+
   # step 4, decide what tasks will be included per position/person, reviewing overall workload
   def include
     @plan = current_user.plans.find(params[:plan_id])
@@ -68,10 +82,6 @@ class TasksWizardController < ApplicationController
   end
 
   private
-
-  def set_task
-    @task = current_user.tasks.find(params[:id])
-  end
 
   def task_params
     params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id)

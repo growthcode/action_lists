@@ -25,15 +25,12 @@
                   </div>
                 </div>
                 <div class="task-priority">
-                  <div class="task-priority-details">
-                    <%= select_tag("priority", options_for_select(["-", 1, 2, 3, 4, 5], task.priority || "-"), class: "form-control") %>
-                  </div>
+                  <%= select_tag("priority", options_for_select([1, 2, 3, 4, 5], task.priority || "-"), class: "form-control") %>
                 </div>
                 <div class="task-person">
-                  <div class="task-priority-details">
-                    <%= select_tag("priority", options_for_select(["-", "name one", "name two", "name three", "name four", "name_long five", "name_long six", "name_longest_yes seven", "name_longest_yes eight", "name_longest_yes nine"], task.priority || "-"), class: "form-control") %>
-                  </div>
+                  <%= select_tag("priority", options_for_select(["name one", "name two", "name three", "name four", "name_long five", "name_long six", "name_longest_yes seven", "name_longest_yes eight", "name_longest_yes nine"], task.priority ), class: "form-control", prompt: "Please select role...") %>
                 </div>
+                <a href="#" class="assign-save-btn" data-url="<%= update_assign_task_wizard_path(@plan.id, task.id) %>">Save Task</a>
 
             </li>
           <% end %>

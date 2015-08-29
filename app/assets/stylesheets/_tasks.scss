@@ -232,7 +232,7 @@
     align-items: center;
   }
   .task {
-    order: 3;
+    order: 5;
   }
   .task-position {
     display: none;
@@ -254,6 +254,15 @@
     display: flex;
     align-items: center;
     margin-right: 8px;
+  }
+  .assign-save-btn {
+    @extend .btn;
+    @extend .btn-success;
+    order: 3;
+    flex: none;
+    padding: 4px 12px;
+    margin-right: 8px;
+    margin-bottom: 6px;
   }
 }
 

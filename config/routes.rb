@@ -60,6 +60,8 @@ Rails.application.routes.draw do
   patch 'plans/:plan_id/tasks_wizard/:id/rate_update', to: 'tasks_wizard#rate_update', as: 'update_rate_task_wizard'
 
   get 'plans/:plan_id/tasks_wizard/assign', to: 'tasks_wizard#assign', as: 'plans_wizard_assign'
+  patch 'plans/:plan_id/tasks_wizard/:id/assign_update', to: 'tasks_wizard#assign_update', as: 'update_assign_task_wizard'
+
   get 'plans/:plan_id/tasks_wizard/include', to: 'tasks_wizard#include', as: 'plans_wizard_include'
   get 'plans/:plan_id/tasks_wizard/position', to: 'tasks_wizard#position', as: 'plans_wizard_position'
   get 'plans/:plan_id/tasks_wizard/preparation', to: 'tasks_wizard#preparation', as: 'plans_wizard_preparation'

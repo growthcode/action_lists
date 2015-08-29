@@ -18,4 +18,5 @@
 //= require addTasks
 //= require wizardAddTask
 //= require wizardRateTask
+//= require wizardAssignUser
 //= require editTaskModal
