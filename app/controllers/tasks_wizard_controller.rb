@@ -49,7 +49,7 @@ class TasksWizardController < ApplicationController
   def assign_update
     @plan = @plans.find(params[:plan_id])
     @task = @plan.tasks.find(params[:id])
-    if @task.role
+    if params[:task][:role]
       if @task.update(task_params)
         render json: {result: "Successfully updated role."}
       else
