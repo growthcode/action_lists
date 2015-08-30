@@ -20,7 +20,8 @@
           <div class="row">
             <div class="col-md-12">
               <div class="role-person-select">
-                <%= select_tag("priority", options_for_select(["-", "name one", "name two", "name three", "name four", "name_long five", "name_long six", "name_longest_yes seven", "name_longest_yes eight", "name_longest_yes nine"], @plan.tasks.first.priority || "-"), class: "form-control ") %>
+                <%= select_tag("role_id", options_for_select(@plan.roles.collect{|role| [role.doer, role.id]}, @plan.roles.first.doer || "-"), class: "form-control ") %>
+
               </div>
             </div>
           </div>
@@ -28,10 +29,11 @@
         </div>
         <div class="col-md-4">
 
-                    <div class="row">
+          <div class="row">
             <div class="col-md-12">
               <div class="list-head">
                 <h2 class="list-head-text">Sort Order</h2>
+                <%= select_tag("priority", options_for_select(["-", "name one", "name two", "name three", "name four", "name_long five", "name_long six", "name_longest_yes seven", "name_longest_yes eight", "name_longest_yes nine"], @plan.tasks.first.priority || "-"), class: "form-control ") %>
               </div>
             </div>
           </div>
@@ -39,7 +41,6 @@
           <div class="row">
             <div class="col-md-12">
               <div class="role-person-select">
-                <%= select_tag("priority", options_for_select(["-", "name one", "name two", "name three", "name four", "name_long five", "name_long six", "name_longest_yes seven", "name_longest_yes eight", "name_longest_yes nine"], @plan.tasks.first.priority || "-"), class: "form-control ") %>
               </div>
             </div>
           </div>
