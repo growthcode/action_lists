@@ -42,6 +42,8 @@ class TasksWizardController < ApplicationController
   def assign
     @plan = current_user.plans.find(params[:plan_id])
     @tasks = @plan.tasks.order(:priority).where(role: nil)
+    @role = Role.new
+    @roles = @plan.roles
     @previous_step_path = plans_wizard_rate_path(@plan.id)
     @next_step_path = plans_wizard_include_path(@plan.id)
   end
@@ -49,7 +51,9 @@ class TasksWizardController < ApplicationController
   def assign_update
     @plan = @plans.find(params[:plan_id])
     @task = @plan.tasks.find(params[:id])
-    binding.pry
+
+binding.pry
+
     if params[:task][:role].present?
       if @task.update(task_params)
         render json: {result: "Successfully updated role.", rolePresent: true}
@@ -58,6 +62,17 @@ class TasksWizardController < ApplicationController
       end
     else
       render json: {result: "Did not select a role.", rolePresent: false}
+    end
+  end
+
+  def create_role
+    @role = current_user.plans.find(params[:plan_id]).roles.new(doer: params[:role][:doer])
+    if @role.doer.present? && @role.save
+      flash[:notice] = "Role saved"
+      redirect_to action: :assign
+    else
+      flash[:warning] = "Role did not save"
+      redirect_to action: :assign
     end
   end
 
