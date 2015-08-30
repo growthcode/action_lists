@@ -52,9 +52,7 @@ class TasksWizardController < ApplicationController
     @plan = @plans.find(params[:plan_id])
     @task = @plan.tasks.find(params[:id])
 
-binding.pry
-
-    if params[:task][:role].present?
+    if params[:task][:role_id].present?
       if @task.update(task_params)
         render json: {result: "Successfully updated role.", rolePresent: true}
       else
@@ -100,6 +98,6 @@ binding.pry
   private
 
   def task_params
-    params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id)
+    params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id, :role_id)
   end
 end

@@ -9,7 +9,7 @@ $(document).ready(function() {
     $.ajax({
       url: url,
       type: 'PATCH',
-      data: {'task[priority]': $parent.find('.task-priority select').val(), 'task[role]': $parent.find('.task-person select').val()},
+      data: {'task[priority]': $parent.find('.task-priority select').val(), 'task[role_id]': $parent.find('.task-person select').val()},
     })
     .done(function(data) {
       console.log("success");
