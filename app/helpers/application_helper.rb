@@ -12,8 +12,6 @@ module ApplicationHelper
     [
       ['Highest Priority', 'ASC'],
       ['Lowest Priority', 'DESC'],
-      # ['Included', 3],
-      # ['Not Included', 4],
     ]
   end
 end
