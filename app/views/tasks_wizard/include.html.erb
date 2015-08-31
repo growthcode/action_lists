@@ -81,18 +81,22 @@
         <ul class="" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
 
           <% @plan.tasks.each do |task| %>
-            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
+            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>" data-url="<%= update_include_task_wizard_path(@plan.id, task.id) %>">
 
                 <div class="task-position">
                   <%= task.position %>
                 </div>
                 <div class="task">
                   <div class="task-details">
+                    <% if @unfiltered %>
+                      <div class="pull-left">Level: <%= task.priority %></div>
+                      <div class="pull-right"><%= task.role.doer %></div> <br>
+                    <% end %>
                     <%= task.deed %>
                   </div>
                 </div>
                 <div class="include-task">
-                  <%= check_box_tag("task[priority]", value="1", task.included, class: "") %>
+                  <%= check_box_tag("task[included]", value="1", task.included) %>
                 </div>
 <!--                 <div class="task-priority">
                   <div class="task-priority-details">

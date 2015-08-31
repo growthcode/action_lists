@@ -68,6 +68,8 @@ Rails.application.routes.draw do
   post 'plans/:plan_id/tasks_wizard/create_role', to: 'tasks_wizard#create_role', as: 'create_role_assign_task_wizard'
 
   get 'plans/:plan_id/tasks_wizard/include', to: 'tasks_wizard#include', as: 'plans_wizard_include'
+  patch 'plans/:plan_id/tasks_wizard/:id/include_toggle', to: 'tasks_wizard#include_toggle', as: 'update_include_task_wizard'
+
   get 'plans/:plan_id/tasks_wizard/position', to: 'tasks_wizard#position', as: 'plans_wizard_position'
   get 'plans/:plan_id/tasks_wizard/preparation', to: 'tasks_wizard#preparation', as: 'plans_wizard_preparation'
 end

@@ -79,6 +79,17 @@ class TasksWizardController < ApplicationController
     @plan = current_user.plans.find(params[:plan_id])
     @previous_step_path = plans_wizard_assign_path(@plan.id)
     @next_step_path = plans_wizard_position_path(@plan.id)
+    @unfiltered = true
+  end
+
+  def include_toggle
+    @plan = @plans.find(params[:plan_id])
+    @task = @plan.tasks.find(params[:id])
+    if @task.update(task_params)
+      render json: {state: @task.included, result: "Task was saved"}
+    else
+      render status: 400
+    end
   end
 
   # step 5, arrange order of tasks execution

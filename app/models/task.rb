@@ -18,6 +18,6 @@
 
 class Task < ActiveRecord::Base
   has_many :needs, inverse_of: :task, dependent: :destroy
-  belongs_to :role, inverse_of: :task
+  belongs_to :role, inverse_of: :tasks
   belongs_to :plan, inverse_of: :tasks
 end

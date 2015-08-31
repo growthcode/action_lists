@@ -3,8 +3,8 @@ $(document).ready(function() {
     event.preventDefault();
     /* Act on the event */
     $that = $(this);
-    plan_id = $that.data('plan');
-    task_id = $that.attr('id').replace('tasks_', '');
+    var plan_id = $that.data('plan');
+    var task_id = $that.attr('id').replace('tasks_', '');
     $.ajax({
       url: '/plans/' + plan_id + '/tasks/' + task_id + '/edit_modal',
       type: 'GET',
