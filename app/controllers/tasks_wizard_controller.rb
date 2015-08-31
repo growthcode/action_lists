@@ -116,7 +116,7 @@ class TasksWizardController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id, :role_id)
+    params.require(:task).permit(:deed, :description, :priority, :position, :included, :inbox, :minutes, :plan_id, :role_id)
   end
 
   def sort_role_id

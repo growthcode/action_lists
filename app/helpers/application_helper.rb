@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def roles_for_select(plan)
-    [['Show all', nil]] + plan.roles.collect{|role| [role.doer, role.id]}
+    plan.roles.collect{|role| [role.doer, role.id]}
   end
 
   def priority_for_select

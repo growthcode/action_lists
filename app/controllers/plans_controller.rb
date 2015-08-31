@@ -10,8 +10,8 @@ class PlansController < ApplicationController
   # GET /plans/1
   # GET /plans/1.json
   def show
-    @inbox = @plan.tasks.where(inbox: true).order(:position)
-    @positioned = @plan.tasks.where(inbox: false, included: true).order(:position)
+    @inbox = @plan.tasks.where(included: false).order(:position)
+    @positioned = @plan.tasks.where(included: true).order(:position)
   end
 
   # GET /plans/new

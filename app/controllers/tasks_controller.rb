@@ -2,6 +2,7 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:edit_modal]
 
   def edit_modal
+    @plan = @plans.find(params[:plan_id])
     modal = render_to_string(partial: 'tasks/edit_modal')
     render json: {modal: modal}
   end
@@ -79,6 +80,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id)
+    params.require(:task).permit(:deed, :description, :priority, :position, :included, :inbox, :minutes, :plan_id, :role_id)
   end
 end
