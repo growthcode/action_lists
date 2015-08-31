@@ -28,7 +28,7 @@
                 </div>
                 <div class="todos-task">
                   <div class="task-todos-details">
-                    <%= task.needs.count %>
+                    <%= task.needs.where(complete: true).count %> / <%= task.needs.count %>
                   </div>
                 </div>
 
