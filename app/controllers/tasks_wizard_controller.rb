@@ -82,6 +82,22 @@ class TasksWizardController < ApplicationController
     @unfiltered = true
   end
 
+  def include_sort
+    @role_id = params[:sort][:role_id].to_i
+    sort_number = params[:sort][:order].to_i
+    @plan = @plans.find(params[:plan_id])
+    @previous_step_path = plans_wizard_assign_path(@plan.id)
+    @next_step_path = plans_wizard_position_path(@plan.id)
+    @unfiltered = true
+    if @role_id.present?
+      @tasks = @plan.tasks.where(role_id: @role_id).order(include_sort_value(sort_number))
+      @unfiltered = false
+    # else
+      @tasks = @plan.tasks.order(include_sort_value(sort_number))
+    end
+    render :include
+  end
+
   def include_toggle
     @plan = @plans.find(params[:plan_id])
     @task = @plan.tasks.find(params[:id])
@@ -110,5 +126,15 @@ class TasksWizardController < ApplicationController
 
   def task_params
     params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id, :role_id)
+  end
+
+  def include_sort_value(number)
+    #include_action_sort_options helper based off of
+    case number
+    when 1 || '1'
+      'priority ASC'
+    when 2 || '2'
+      'priority DESC'
+    end
   end
 end
