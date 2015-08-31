@@ -10,10 +10,10 @@
       </div>
       <div class="list-tasks">
 
-        <ul class="positionSortList modalTaskEditOn" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>" data-url-modal-edit="<%= edit_modal_task_path(@plan.id, task.id) %>>
+        <ul class="positionSortList modalTaskEditOn" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
 
           <% @tasks.each do |task| %>
-            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
+            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>" data-url-modal-edit="<%= edit_modal_task_path(@plan.id, task.id) %>">
 
               <div class="task-position">
                 <div class="task-position-details">
