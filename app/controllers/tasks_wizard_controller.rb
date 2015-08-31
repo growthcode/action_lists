@@ -101,6 +101,7 @@ class TasksWizardController < ApplicationController
   # step 5, arrange order of tasks execution
   def position
     @plan = current_user.plans.find(params[:plan_id])
+    @tasks = @plan.tasks.where(included: true).order(:position)
     @previous_step_path = plans_wizard_include_path(@plan.id)
     @next_step_path = plans_wizard_preparation_path(@plan.id)
   end
