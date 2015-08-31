@@ -1,6 +1,6 @@
-<ul class="connectedSortable <%#= sort_klass %>" data-sort-url=<%= task_sort_route %>>
+<ul class="connectedSortable <%#= sort_klass %> modalTaskEditOn" data-sort-url=<%= task_sort_route %>>
   <% tasks.each do |task| %>
-    <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
+    <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>" data-url-modal-edit="<%= edit_modal_task_path(@plan.id, task.id) %>">
       <div class="task-position">
         <div class="task-position-details">
           <%= task.position %>

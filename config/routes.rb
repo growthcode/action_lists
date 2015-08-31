@@ -25,7 +25,7 @@
 #                                PATCH  /plans/:id(.:format)                                      plans#update
 #                                PUT    /plans/:id(.:format)                                      plans#update
 #                                DELETE /plans/:id(.:format)                                      plans#destroy
-#                                GET    /plans/:plan_id/tasks/:id/edit_modal(.:format)            tasks#edit_modal
+#                edit_modal_task GET    /plans/:plan_id/tasks/:id/edit_modal(.:format)            tasks#edit_modal
 #                    update_task PATCH  /plans/:plan_id/tasks/:id(.:format)                       tasks#update
 #                   destroy_task DELETE /plans/:plan_id/tasks/:id(.:format)                       tasks#destroy
 #                     plan_tasks POST   /plans/:plan_id/tasks(.:format)                           tasks#create
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
 
   resources :plans
 
-  get 'plans/:plan_id/tasks/:id/edit_modal', to: 'tasks#edit_modal'
+  get 'plans/:plan_id/tasks/:id/edit_modal', to: 'tasks#edit_modal', as: 'edit_modal_task'
   patch 'plans/:plan_id/tasks/:id', to: 'tasks#update', as: :update_task
   delete 'plans/:plan_id/tasks/:id', to: 'tasks#destroy', as: :destroy_task
   post 'plans/:plan_id/tasks', to: 'tasks#create', as: :plan_tasks

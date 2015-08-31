@@ -7,14 +7,16 @@
   <div class="content-wrapper">
     <div class="list-content">
       <div class="list-head">
-        <h2 class="list-head-text">Actions</h2>
+        <h2 class="list-head-text">
+          TODOs - Prepare task for execution, 1 time actions
+        </h2>
       </div>
       <div class="list-tasks">
 
-        <ul class="" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
+        <ul class="modalTaskEditOn" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
 
           <% @plan.tasks.each do |task| %>
-            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
+            <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>" data-url-modal-edit="<%= edit_modal_task_path(@plan.id, task.id) %>">
 
                 <div class="task">
                   <div class="task-details">

@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   def update
     @plan = @plans.find(params[:plan_id])
     @plan.tasks.find(params[:id]).update(task_params)
-    redirect_to plan_path(@plan)
+    redirect_to :back
   end
 
   def create
