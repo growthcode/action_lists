@@ -67,7 +67,7 @@ Rails.application.routes.draw do
   patch 'plans/:plan_id/tasks_wizard/:id/assign_update', to: 'tasks_wizard#assign_update', as: 'update_assign_task_wizard'
   post 'plans/:plan_id/tasks_wizard/create_role', to: 'tasks_wizard#create_role', as: 'create_role_assign_task_wizard'
 
-  get 'plans/:plan_id/tasks_wizard/include', to: 'tasks_wizard#include', as: 'plans_wizard_include'
+  get 'plans/:plan_id/tasks_wizard/include', to: 'tasks_wizard#include', as: 'plans_wizard_include'#, params: {sort: {show: all}} unless params[:show].present?
   patch 'plans/:plan_id/tasks_wizard/:id/include_toggle', to: 'tasks_wizard#include_toggle', as: 'update_include_task_wizard'
   post 'plans/:plan_id/tasks_wizard/include_sort', to: 'tasks_wizard#include_sort', as: 'sort_include_task_wizard'
 

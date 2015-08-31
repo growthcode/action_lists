@@ -1,5 +1,5 @@
 class TasksWizardController < ApplicationController
-  helper_method :sort_by_priority, :show_only_role
+  helper_method :sort_role_id, :sort_priority_direction
   # step 1, identify tasks
   def list
     @plan = current_user.plans.find(params[:plan_id])
@@ -78,18 +78,10 @@ class TasksWizardController < ApplicationController
   def include
     @plan = current_user.plans.find(params[:plan_id])
 
-    if params[:sort] && show_only_role[:role_id].present?
-      @tasks = @plan.tasks.where(role_id: show_only_role[:role_id])
+    if sort_role_id
+      @tasks = @plan.tasks.where(role_id: sort_role_id).order(priority: sort_priority_direction)
     else
-      @tasks = @plan.tasks
-    end
-
-    if params[:sort] && sort_by_priority
-      # binding.pry
-      @tasks = @tasks.order(priority: sort_by_priority[:priority_direction])
-      # binding.pry
-    else
-      @tasks = @tasks.order(priority: 'ASC')
+      @tasks = @plan.tasks.order(priority: sort_priority_direction)
     end
 
     @previous_step_path = plans_wizard_assign_path(@plan.id)
@@ -126,19 +118,17 @@ class TasksWizardController < ApplicationController
     params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id, :role_id)
   end
 
-  def filter_by_role
-    if params[:sort][:role_id] && params[:sort][:role_id] != 'show_all'
-      @role_id = params[:sort][:role_id]
-    else
-      @sort_role_id = 'show_all'
-    end
-  end
-
-  def show_only_role
+  def sort_role_id
+    params[:sort] ||= Hash.new
+    params[:sort][:role_id] = (params[:sort][:role_id].present?) ? params[:sort][:role_id] : nil
     params.require(:sort).permit(:role_id)
+    params[:sort][:role_id]
   end
 
-  def sort_by_priority
+  def sort_priority_direction
+    params[:sort] ||= Hash.new
+    params[:sort][:priority_direction] ||= 'ASC'
     params.require(:sort).permit(:priority_direction)
+    params[:sort][:priority_direction]
   end
 end

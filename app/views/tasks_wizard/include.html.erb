@@ -22,7 +22,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="role-person-select">
-                <%= select_tag("sort[role_id]", options_for_select(roles_for_select(@plan), show_only_role[:role_id] || 'Show all'), class: "form-control sortRole") %>
+                <%= select_tag("sort[role_id]", options_for_select(roles_for_select(@plan), sort_role_id || 'Show all'), class: "form-control sortRole") %>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="role-person-select">
-                <%= select_tag('sort[priority_direction]', options_for_select(priority_for_select, sort_by_priority[:priority_direction] || 'ASC'), class: "form-control sortOrder") %>
+                <%= select_tag('sort[priority_direction]', options_for_select(priority_for_select, sort_priority_direction || 'ASC'), class: "form-control sortOrder") %>
               </div>
             </div>
           </div>
