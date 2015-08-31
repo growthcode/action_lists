@@ -7,7 +7,7 @@
   <div class="content-wrapper">
     <div class="list-content">
       <div class="row">
-        <%= form_tag sort_include_task_wizard_path(@plan.id) do %>
+        <%= form_tag plans_wizard_include_path(@plan.id), method: 'get' do %>
 
         <div class="col-md-4">
 
@@ -22,7 +22,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="role-person-select">
-                <%= select_tag("sort[role_id]", options_for_select(@plan.roles.collect{|role| [role.doer, role.id]}, @role_id), prompt: "Please select role...", class: "form-control sortRole") %>
+                <%= select_tag("sort[role_id]", options_for_select(roles_for_select(@plan), show_only_role[:role_id] || 'Show all'), class: "form-control sortRole") %>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="role-person-select">
-                <%= select_tag('sort[order]', options_for_select(include_action_sort_options, 1), class: "form-control sortOrder") %>
+                <%= select_tag('sort[priority_direction]', options_for_select(priority_for_select, sort_by_priority[:priority_direction] || 'ASC'), class: "form-control sortOrder") %>
               </div>
             </div>
           </div>
@@ -92,10 +92,8 @@
                 </div>
                 <div class="task">
                   <div class="task-details">
-                    <% if @unfiltered %>
-                      <div class="pull-left">Level: <%= task.priority %></div>
-                      <div class="pull-right"><%= task.role.doer %></div> <br>
-                    <% end %>
+                    <div class="pull-left">Level: <%= task.priority %></div>
+                    <div class="pull-right"><%= task.role.doer %></div> <br>
                     <%= task.deed %>
                   </div>
                 </div>

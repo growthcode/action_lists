@@ -1,5 +1,5 @@
 class TasksWizardController < ApplicationController
-
+  helper_method :sort_by_priority, :show_only_role
   # step 1, identify tasks
   def list
     @plan = current_user.plans.find(params[:plan_id])
@@ -77,26 +77,23 @@ class TasksWizardController < ApplicationController
   # step 4, decide what tasks will be included per position/person, reviewing overall workload
   def include
     @plan = current_user.plans.find(params[:plan_id])
-    @tasks = @plan.tasks.order('priority ASC')
-    @previous_step_path = plans_wizard_assign_path(@plan.id)
-    @next_step_path = plans_wizard_position_path(@plan.id)
-    @unfiltered = true
-  end
 
-  def include_sort
-    @role_id = params[:sort][:role_id].to_i
-    sort_number = params[:sort][:order].to_i
-    @plan = @plans.find(params[:plan_id])
+    if params[:sort] && show_only_role[:role_id].present?
+      @tasks = @plan.tasks.where(role_id: show_only_role[:role_id])
+    else
+      @tasks = @plan.tasks
+    end
+
+    if params[:sort] && sort_by_priority
+      # binding.pry
+      @tasks = @tasks.order(priority: sort_by_priority[:priority_direction])
+      # binding.pry
+    else
+      @tasks = @tasks.order(priority: 'ASC')
+    end
+
     @previous_step_path = plans_wizard_assign_path(@plan.id)
     @next_step_path = plans_wizard_position_path(@plan.id)
-    @unfiltered = true
-    if @role_id.present?
-      @tasks = @plan.tasks.where(role_id: @role_id).order(include_sort_value(sort_number))
-      @unfiltered = false
-    # else
-      @tasks = @plan.tasks.order(include_sort_value(sort_number))
-    end
-    render :include
   end
 
   def include_toggle
@@ -129,13 +126,19 @@ class TasksWizardController < ApplicationController
     params.require(:task).permit(:deed, :description, :role, :person, :priority, :position, :included, :inbox, :minutes, :plan_id, :role_id)
   end
 
-  def include_sort_value(number)
-    #include_action_sort_options helper based off of
-    case number
-    when 1 || '1'
-      'priority ASC'
-    when 2 || '2'
-      'priority DESC'
+  def filter_by_role
+    if params[:sort][:role_id] && params[:sort][:role_id] != 'show_all'
+      @role_id = params[:sort][:role_id]
+    else
+      @sort_role_id = 'show_all'
     end
+  end
+
+  def show_only_role
+    params.require(:sort).permit(:role_id)
+  end
+
+  def sort_by_priority
+    params.require(:sort).permit(:priority_direction)
   end
 end
