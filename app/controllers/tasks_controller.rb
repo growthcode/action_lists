@@ -31,6 +31,7 @@ class TasksController < ApplicationController
 
     task_position = @task.position
     if task_position
+      @task.destroy
       tasks_array = @plan.tasks.select([:id, :position]).where("position > ?", "#{task_position}")
       tasks_array.each do |task|
         task.position -= 1
