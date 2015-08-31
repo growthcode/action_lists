@@ -14,9 +14,11 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap-sprockets
+//= require bootstrap-switch
 //= require sortTasks
 //= require addTasks
 //= require wizardAddTask
 //= require wizardRateTask
 //= require wizardAssignUser
+//= require wizardIncludeTask
 //= require editTaskModal

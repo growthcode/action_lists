@@ -20,27 +20,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="role-person-select">
-                <%= select_tag("role_id", options_for_select(@plan.roles.collect{|role| [role.doer, role.id]}, @plan.roles.first.doer || "-"), class: "form-control ") %>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-md-4">
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="list-head">
-                <h2 class="list-head-text">Sort Order</h2>
-                <%= select_tag("priority", options_for_select(["-", "name one", "name two", "name three", "name four", "name_long five", "name_long six", "name_longest_yes seven", "name_longest_yes eight", "name_longest_yes nine"], @plan.tasks.first.priority || "-"), class: "form-control ") %>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="role-person-select">
+                <%= select_tag("role_id", options_for_select(@plan.roles.collect{|role| [role.doer, role.id]}, @plan.roles.first.doer || "-"), prompt: "Please select role...", class: "form-control ") %>
               </div>
             </div>
           </div>
@@ -51,6 +31,25 @@
                     <div class="row">
             <div class="col-md-12">
               <div class="list-head">
+                <h2 class="list-head-text">Sort Order</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="role-person-select">
+                <%= select_tag("priority", options_for_select(["Highest Priority", "Lowest Priority", "Included", "Not Included"], "Highest Priority"), class: "form-control ") %>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="list-head">
                 <h2 class="list-head-text"></h2>
               </div>
             </div>
@@ -59,9 +58,9 @@
           <div class="row">
             <div class="col-md-12">
               <div class="pull-right">
-                <div class="btn btn-success btn-lg">something</div>
+                <div class="btn btn-warning btn-lg">Refresh Only</div>
                 &nbsp;
-                <div class="btn btn-success btn-lg">something</div>
+                <div class="btn btn-success btn-lg">Save and Refresh</div>
                 &nbsp;&nbsp;
               </div>
             </div>
@@ -72,11 +71,10 @@
     </div>
   </div>
 
-
   <div class="content-wrapper">
     <div class="list-content">
       <div class="list-head">
-        <h2 class="list-head-text">Actions</h2>
+        <h2 class="list-head-text">State of Task...</h2>
       </div>
       <div class="list-tasks">
 
@@ -94,13 +92,13 @@
                   </div>
                 </div>
                 <div class="include-task">
-                  <%= check_box_tag("priority", value="1", task.included, class: "") %>
+                  <%= check_box_tag("task[priority]", value="1", task.included, class: "") %>
                 </div>
-                <div class="task-priority">
+<!--                 <div class="task-priority">
                   <div class="task-priority-details">
-                    <%= select_tag("priority", options_for_select(["-", 1, 2, 3, 4, 5], task.priority || "-"), class: "form-control") %>
+                    <%#= select_tag("priority", options_for_select(priority_ratings_array, task.priority), class: "form-control") %>
                   </div>
-                </div>
+                </div> -->
 
             </li>
           <% end %>
