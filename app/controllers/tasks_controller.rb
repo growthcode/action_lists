@@ -59,10 +59,12 @@ class TasksController < ApplicationController
       if positioned.include?(task.id.to_s)
         index = positioned.index(task.id.to_s)
         task.position = index + 1
+        task.included = true
         task.inbox = false
         task.save
       else
         task.position = nil
+        # task.included = false
         task.inbox = true
         task.save
       end

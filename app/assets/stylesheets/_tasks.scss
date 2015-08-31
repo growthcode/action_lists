@@ -376,3 +376,11 @@
   }
 }
 
+// main PLAN show page, inbox
+#inbox-tasks {
+  .task-row {
+    .task-position {
+      display: none;
+    }
+  }
+}

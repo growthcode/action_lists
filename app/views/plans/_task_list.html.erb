@@ -1,5 +1,26 @@
-<ul class="connectedSortable sortableInbox" data-sort-url=<%= task_sort_route %>>
+<ul class="connectedSortable <%#= sort_klass %>" data-sort-url=<%= task_sort_route %>>
   <% tasks.each do |task| %>
-    <%= render partial: 'plans/task', locals: {task: task} %>
+    <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">
+      <div class="task-position">
+        <div class="task-position-details">
+          <%= task.position %>
+        </div>
+      </div>
+      <div class="task">
+        <div class="task-details">
+          <div class="task-details-title">
+            <%= task.deed %>
+          </div>
+        </div>
+      </div>
+      <div class="task-priority priority-level-<%= task.priority %>">
+        <div class="task-priority-details">
+          <%= task.priority %>
+        </div>
+      </div>
+    </li>
   <% end %>
 </ul>
+
+
+

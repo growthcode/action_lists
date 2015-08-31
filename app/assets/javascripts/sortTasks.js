@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $(".sortableInbox, .positionList").sortable({
+  $(".positionSortList, .inboxSortList").sortable({
     connectWith: ".connectedSortable",
     placeHolder: ".task",
     cursor: "move",
@@ -11,11 +11,11 @@ $(document).ready(function() {
     },
     update: function(event, ui){
       console.log("in the sortable function");
-      $.post($(this).data('sort-url'), $(this).sortable('serialize'))
+      $.post($(this).data('sort-url'), $('.positionSortList').sortable('serialize'))
       .success(function(data){
         console.log("in the 'success' function");
         var count = 0
-        $('.task-row').each(function(){
+        $('.positionSortList .task-row').each(function(){
           count += 1
           $(this).find('.task-position-details').html(count);
         })
