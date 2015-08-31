@@ -77,6 +77,7 @@ class TasksWizardController < ApplicationController
   # step 4, decide what tasks will be included per position/person, reviewing overall workload
   def include
     @plan = current_user.plans.find(params[:plan_id])
+    @tasks = @plan.tasks.order('priority ASC')
     @previous_step_path = plans_wizard_assign_path(@plan.id)
     @next_step_path = plans_wizard_position_path(@plan.id)
     @unfiltered = true
