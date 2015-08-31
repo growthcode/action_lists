@@ -49,19 +49,18 @@
 
           <div class="row">
             <div class="col-md-12">
-              <div class="list-head">
-                <h2 class="list-head-text"></h2>
+              <div class="list-head hidden-xs hidden-sm">
+                <h2 class="list-head-text ">
+                  &nbsp;
+                </h2>
               </div>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-12">
-              <div class="pull-right">
-                <div class="btn btn-warning btn-lg">Refresh Only</div>
-                &nbsp;
-                <div class="btn btn-success btn-lg">Save and Refresh</div>
-                &nbsp;&nbsp;
+              <div class="btn-refresh">
+                <div class="btn btn-warning texgt-center btn-block">Refresh / Sort</div>
               </div>
             </div>
           </div>
@@ -98,11 +97,6 @@
                 <div class="include-task">
                   <%= check_box_tag("task[included]", value="1", task.included) %>
                 </div>
-<!--                 <div class="task-priority">
-                  <div class="task-priority-details">
-                    <%#= select_tag("priority", options_for_select(priority_ratings_array, task.priority), class: "form-control") %>
-                  </div>
-                </div> -->
 
             </li>
           <% end %>
