@@ -6,11 +6,11 @@
   <div class="content-wrapper">
     <div class="list-content">
       <div class="list-head">
-        <h2 class="list-head-text">Actions</h2>
+        <h2 class="list-head-text">Execution Order</h2>
       </div>
       <div class="list-tasks">
 
-        <ul class="" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
+        <ul class="positionList" data-sort-url="<%= sort_positioned_plan_tasks_path(@plan.id) %>">
 
           <% @tasks.each do |task| %>
             <li class="task-row" id="tasks_<%= task.id %>" data-plan="<%= @plan.id %>">

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $(".sortableInbox").sortable({
+  $(".sortableInbox, .positionList").sortable({
     connectWith: ".connectedSortable",
     placeHolder: ".task",
     cursor: "move",
@@ -15,9 +15,9 @@ $(document).ready(function() {
       .success(function(data){
         console.log("in the 'success' function");
         var count = 0
-        $('.position-wrapper .task-row').each(function(){
+        $('.task-row').each(function(){
           count += 1
-          $(this).children('.task-position').html(count);
+          $(this).find('.task-position-details').html(count);
         })
       })
       .error(function(data){

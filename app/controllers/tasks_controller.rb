@@ -54,11 +54,18 @@ class TasksController < ApplicationController
 
   def sort_positioned
     positioned = params[:tasks]
-    positioned.each_with_index do |id, index|
-      task = Task.find(id)
-      task.position = index + 1
-      task.inbox = false
-      task.save
+    @plan = Plan.find(params[:plan_id])
+    @plan.tasks.each do |task|
+      if positioned.include?(task.id.to_s)
+        index = positioned.index(task.id.to_s)
+        task.position = index + 1
+        task.inbox = false
+        task.save
+      else
+        task.position = nil
+        task.inbox = true
+        task.save
+      end
     end
     render json: positioned
   end
