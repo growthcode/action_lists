@@ -28,13 +28,17 @@ class TasksController < ApplicationController
   def destroy
     @plan = @plans.find(params[:plan_id])
     @task = Task.find(params[:id])
+
     task_position = @task.position
-    tasks_array = @plan.tasks.select([:id, :position]).where("position > ?", "#{task_position}")
-    tasks_array.each do |task|
-      task.position -= 1
-      task.save
+    if task_position
+      tasks_array = @plan.tasks.select([:id, :position]).where("position > ?", "#{task_position}")
+      tasks_array.each do |task|
+        task.position -= 1
+        task.save
+      end
+    else
+      @task.destroy
     end
-    @task.destroy
     respond_to do |format|
       format.html { redirect_to plan_path(@plan), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }

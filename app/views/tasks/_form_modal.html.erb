@@ -1,37 +1,38 @@
 <div class="row">
-  <div class="col-sm-4">
-      <label for="">Priority Level</label>
-      <%= f.select :priority, options_for_select([1, 2, 3, 4, 5], @task.priority), {}, class: "form-control" %>
-
-  </div>
-  <div class="col-sm-4">
+  <div class="col-sm-5">
     <label for=""><i class="fa fa-user"></i> Role / Person<br></label>
       <%= f.select :role_id, options_for_select(roles_for_select(@plan), @task.role_id), {}, prompt: "Please select role...", class: "form-control" %>
-
   </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-7">
     <div class="form-group">
       <label for="">Notes / Details: </label><br>
       <%= f.text_area :description, class: "form-control" %>
     </div>
   </div>
 </div>
-
 <br>
 <div class="row">
   <div class="col-sm-12">
 
-    <div class="form- pull-left">
-      <%= f.check_box :included %> Included?<br>
+    <div class="taskIncludeCheckbox">
+      Included?<br>
+      <%= f.check_box :included, value: 1, class: "taskInclude" %>
+      <%#= check_box_tag("task[included]", value="1", @task.included) %>
     </div>
+<script>
 
+$('.taskIncludeCheckbox .taskInclude').bootstrapSwitch({
+  labelWidth: 0,
+  onText: 'Active',
+  offText: 'Defer',
+  onColor: 'success',
+});
+
+</script>
     <div class="form-group pull-right">
       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       <%= f.submit "Save changes", class: "btn btn-primary" %>
-      <%= link_to 'Destroy', destroy_task_path(@task.plan.id, @task.id), method: :delete, data: { confirm: "Are you sure you want to Delete this Task and all #{@task.needs.count} of it's Prep Needs?" }, class: "btn btn-danger" %>
+      <%= link_to 'Destroy', destroy_task_path(@plan.id, @task.id), method: :delete, data: { confirm: "Are you sure you want to Delete this Task and all #{@task.needs.count} of it's Prep Needs?" }, class: "btn btn-danger" %>
     </div>
 
   </div>

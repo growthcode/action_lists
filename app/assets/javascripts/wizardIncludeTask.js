@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+    // $('.task-row, ').delegate('input[name="task[included]"]', "click", function(event) {
+
+
   $taskInclude = $('input[name="task[included]"]')
   $taskInclude.bootstrapSwitch({
     labelWidth: 0,
