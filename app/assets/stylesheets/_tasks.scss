@@ -184,14 +184,39 @@
 
 // main plan page, makes inbox horizontal
 #index-tasks {
-  display: flex;
-  #inbox-tasks {
-    width: 270px;
-    flex: none;
-    margin-right: 8px;
+  .task-row {
+    display: flex;
+    align-items: stretch;
   }
-  #position-tasks {
-    width: 100%;
+  .task {
+    order: 3;
+  }
+  .flex-person-wrapper {
+    width: 250px;
+    order: 2;
+    .task-person {
+      margin-right: 8px;
+      .task-person-details {
+        overflow: auto;
+        padding: 6px 8px 4px;
+        position: relative;
+        max-height: 162px;
+        z-index: 10;
+      }
+    }
+  }
+  .task-position {
+    flex: none;
+    background-color: #3797FC;
+    color: white;
+    border-radius: 50%;
+    order: 1;
+    align-self: center;
+    margin-right: 8px;
+    min-width: 30px;
+  }
+  .task-priority {
+    display: none;
   }
 }
 
@@ -310,30 +335,6 @@
     background: #8F8F8F;
   }
 }
-
-#position-tasks, #inbox-tasks {
-  .task-row {
-    display: flex;
-    align-items: stretch;
-  }
-  .task {
-    order: 2;
-  }
-  .task-position {
-    flex: none;
-    background-color: #3797FC;
-    color: white;
-    border-radius: 50%;
-    order: 1;
-    align-self: center;
-    margin-right: 8px;
-    min-width: 30px;
-  }
-  .task-priority {
-    display: none;
-  }
-}
-
 
 
 

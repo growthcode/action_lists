@@ -93,7 +93,7 @@
                 <div class="task">
                   <div class="task-details">
                     <div class="pull-left">Level: <%= task.priority %></div>
-                    <div class="pull-right"><%= task.role.doer %></div> <br>
+                    <div class="pull-right"><%= task.role.try(:doer) %></div> <br>
                     <%= task.deed %>
                   </div>
                 </div>
