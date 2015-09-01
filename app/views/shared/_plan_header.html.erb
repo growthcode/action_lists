@@ -1,7 +1,14 @@
 <div class="plan-header">
   <div class="plan-header-btn plan-header-name">
-    <%= @plan.name %>
+    '<%= @plan.name %>' Action Plan
   </div>
+  <% if request.path_parameters[:action] =~ /(show)/ && request.path_parameters[:controller] =~ /(plans)/%>
+    <div class="pull-right plan-header-name">
+      Sorting <div class="btn btn-warning enableSort">
+        Enable
+      </div>
+    </div>
+  <% end %>
   <% if @next_step_path %>
     <div class="pull-right">
       <%= link_to "Previous Step", @previous_step_path, class: "btn btn-success" %>

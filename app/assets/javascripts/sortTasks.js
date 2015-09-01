@@ -28,4 +28,19 @@ $(document).ready(function() {
       });
     }
   });
+
+  $(".enableSort").on('click', function(event) {
+    if ($(".enableSort").attr('class').includes('btn-info')) {
+      $("#index-tasks ul.positionSortList").sortable("enable");
+      $(".enableSort").removeClass('btn-info');
+      $(".enableSort").text("Enabled");
+      $(".enableSort").addClass('btn-warning');
+    } else {
+      $("#index-tasks ul.positionSortList").sortable("disable");
+      $(".enableSort").removeClass('btn-warning');
+      $(".enableSort").text("Disabled");
+      $(".enableSort").addClass('btn-info');
+    };
+  });
+  $(".enableSort").trigger('click');
 });
