@@ -22,25 +22,26 @@
               </div>
             </h4>
           </div>
-
         </div>
         <div class="modal-body">
 
           <div class="container-fluid">
-              <%= render partial: 'tasks/form_modal', locals: {f: f} %>
 
-            <div class="row">
+              <%= render partial: 'tasks/form_modal', locals: {f: f} %>
+<!--             <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
                   <label for="">Preparation TODO List: </label><br>
-                  <% @task.needs.each do |need| %>
+                  <%# @task.needs.each do |need| %>
                     <div class="form-group">
-                      <%= check_box_tag 'needs[complete][]', 1, need.complete %> <%= need.resource %>
+                      <%#= check_box_tag 'needs[complete][]', 1, need.complete %> <%#= need.resource %>
                     </div>
-                  <% end %>
+                  <%# end %>
                 </div>
               </div>
-            </div>
+            </div> -->
+
+
 
           </div>
         </div>

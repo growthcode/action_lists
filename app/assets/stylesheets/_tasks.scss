@@ -183,7 +183,7 @@
 }
 
 // main plan page, makes inbox horizontal
-#index-tasks {
+#index-tasks, #position-tasks {
   .task-row {
     display: flex;
     align-items: stretch;
@@ -375,14 +375,5 @@
   .task-todos-details {
     min-width: 40px;
     text-align: center;
-  }
-}
-
-// main PLAN show page, inbox
-#inbox-tasks {
-  .task-row {
-    .task-position {
-      display: none;
-    }
   }
 }

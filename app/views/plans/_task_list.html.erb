@@ -10,7 +10,7 @@
       <div class="flex-person-wrapper">
         <div class="task-person">
           <div class="task-person-details">
-            <%= task.role.doer %>
+            <%= task.role.try(:doer) %>
           </div>
         </div>
       </div>

@@ -103,7 +103,8 @@ class TasksWizardController < ApplicationController
     @plan = current_user.plans.find(params[:plan_id])
     @tasks = @plan.tasks.where(included: true).order(:position)
     @previous_step_path = plans_wizard_include_path(@plan.id)
-    @next_step_path = plans_wizard_preparation_path(@plan.id)
+    # @next_step_path = plans_wizard_preparation_path(@plan.id)
+    @next_step_path = plan_path(@plan.id)
   end
 
   # step 6, give todos for tasks which are included but not ready
