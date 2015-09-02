@@ -3,11 +3,16 @@
     '<%= @plan.name %>' Action Plan
   </div>
   <% if request.path_parameters[:action] =~ /(show)/ && request.path_parameters[:controller] =~ /(plans)/%>
-    <div class="pull-right plan-header-name">
+  <div class="pull-right">
+    <span class="plan-header-name">
       Sorting <div class="btn btn-warning enableSort">
         Enable
       </div>
-    </div>
+    </span>
+    <span class="plan-header-name">
+      <%= link_to 'Quick Start Wizard', plans_wizard_list_path(@plan.id), class: "btn btn-info" %>
+    </span>
+  </div>
   <% end %>
   <% if @next_step_path %>
     <div class="pull-right">
