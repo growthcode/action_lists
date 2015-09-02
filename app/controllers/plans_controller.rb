@@ -10,7 +10,7 @@ class PlansController < ApplicationController
   # GET /plans/1
   # GET /plans/1.json
   def show
-    @positioned = @plan.tasks.includes(:role).where("included = 'true' AND role_id is not null").order(:position)
+    @tasks = @plan.tasks.included_with_doer.order(:position)
   end
 
   # GET /plans/new

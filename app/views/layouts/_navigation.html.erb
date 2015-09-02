@@ -9,7 +9,9 @@
         </a>
         <ul class="dropdown-menu">
           <% @plans.each do |plan| %>
-            <li><%= link_to plan.name, plan, class: "header-btn" %></li>
+            <li>
+              <%= link_to plan.name, plan, class: "header-btn" %>
+            </li>
           <% end %>
         </ul>
       </li>

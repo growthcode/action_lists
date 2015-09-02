@@ -7,7 +7,7 @@
         <h2 class="list-head-text">Included Task Positioning</h2>
       </div>
       <div class="list-tasks">
-        <%= render partial: 'task_list', locals: {tasks: @positioned, sort_klass: 'positionSortList', task_sort_route: sort_positioned_plan_tasks_path(@plan.id)} %>
+        <%= render partial: 'task_list', locals: {tasks: @tasks, sort_klass: 'positionSortList', task_sort_route: sort_positioned_plan_tasks_path(@plan.id)} %>
       </div>
     </div>
   </div>
